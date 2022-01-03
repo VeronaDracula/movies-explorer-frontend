@@ -1,0 +1,16 @@
+.header {
+    background-color: #073042;
+}
+
+.header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 74px;
+}
+
+.logo {
+    height: 38px;
+    width: 38px;
+}

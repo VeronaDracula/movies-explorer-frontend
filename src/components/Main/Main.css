@@ -1,0 +1,13 @@
+.promo {
+    background-color: #073042;
+}
+
+.promo__container {
+    min-height: 574px;
+    display: flex;
+    align-items: center;
+}
+
+.project {
+    background-color: #202020;
+}

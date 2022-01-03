@@ -1,0 +1,31 @@
+.navigation__link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #FFF;
+    margin: 0;
+    text-decoration: none;
+}
+
+.navigation__link:hover {
+    opacity: 0.5;
+}
+
+.navigation__link_type_main {
+    margin-right: 30px;
+}
+
+.navigation__button {
+    background: #3DDC84;
+    border-radius: 3px;
+    height: 32px;
+    width: 74px;
+    border: none;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #000;
+}
