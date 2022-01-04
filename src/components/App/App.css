@@ -10,13 +10,16 @@
 
 .page__content {
   max-width: 89%;
-  /*max-width: 1140px;*/
   margin: 0 auto;
 }
 
 .page__button:hover {
   opacity: 0.7;
   cursor: pointer;
+}
+
+.page__link:hover {
+  opacity: 0.5;
 }
 
 @media screen and (min-width: 1280px) {

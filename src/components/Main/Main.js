@@ -5,7 +5,7 @@ import AboutProject from '../AboutProject/AboutProject.js';
 import Techs from '../Techs/Techs.js';
 import AboutMe from '../AboutMe/AboutMe.js';
 
-function Main(props) {
+function Main() {
 
     return (
         <main className="content">
@@ -26,8 +26,6 @@ function Main(props) {
             <section className="about">
                 <AboutMe />
             </section>
-
-
         </main>
     );
 }

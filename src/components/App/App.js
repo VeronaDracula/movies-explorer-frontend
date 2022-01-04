@@ -3,6 +3,7 @@ import { Route, Switch} from 'react-router-dom';
 
 import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
+import Footer from '../Footer/Footer.js';
 
 import './App.css';
 
@@ -10,35 +11,35 @@ function App() {
   return (
     <div className="App">
         <div className="page">
+            <Header/>
 
-                <Header/>
+            <Switch>
+                <Route path="/signin">
 
-                <Switch>
-                    <Route path="/signin">
+                </Route>
 
-                    </Route>
+                <Route path="/signup">
 
-                    <Route path="/signup">
+                </Route>
 
-                    </Route>
+                <Route path="/" >
+                    <Main/>
+                </Route>
 
-                    <Route path="/" >
-                        <Main/>
-                    </Route>
+                <Route path="/movies">
 
-                    <Route path="/movies">
+                </Route>
 
-                    </Route>
+                <Route path="/saved-movies">
 
-                    <Route path="/saved-movies">
+                </Route>
 
-                    </Route>
+                <Route path="/profile">
 
-                    <Route path="/profile">
+                </Route>
+            </Switch>
 
-                    </Route>
-                </Switch>
-
+            <Footer />
         </div>
     </div>
   );
