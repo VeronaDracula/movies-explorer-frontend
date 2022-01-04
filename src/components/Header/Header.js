@@ -9,7 +9,7 @@ function Header(props) {
         <header className="header">
             <div className="header__container page__content">
                 <div>
-                    <img className="logo" src={headerLogo} alt="логотип"/>
+                    <Link to="/" className="logo__link"><img className="logo" src={headerLogo} alt="логотип"/></Link>
                 </div>
                 <div className="header__navigation">
                     <Switch>
@@ -21,10 +21,8 @@ function Header(props) {
 
                         </Route>
 
-                        <Route exact path="/" >
+                        <Route path="/" >
                             <Navigation />
-
-
                         </Route>
 
                         <Route path="/movies">
