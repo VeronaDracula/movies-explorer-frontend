@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 import studentPhoto from '../../images/student-photo.jpg';
 
@@ -56,13 +55,7 @@ function AboutMe() {
                         </a>
                     </li>
                 </ul>
-
-
-
-
             </div>
-
-
         </div>
     );
 }
