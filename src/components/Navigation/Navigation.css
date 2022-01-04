@@ -8,10 +8,6 @@
     text-decoration: none;
 }
 
-.navigation__link:hover {
-    opacity: 0.5;
-}
-
 .navigation__link_type_main {
     margin-right: 30px;
 }

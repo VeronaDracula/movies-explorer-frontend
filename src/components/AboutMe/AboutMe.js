@@ -5,7 +5,7 @@ import studentPhoto from '../../images/student-photo.jpg';
 
 import MainTitle from '../MainTitle/MainTitle.js';
 
-function AboutMe(props) {
+function AboutMe() {
 
     return (
         <div className="about__container page__content">
@@ -21,8 +21,8 @@ function AboutMe(props) {
                         заниматься фриланс-заказами и ушёл с постоянной работы.
                     </p>
                     <ul className="about__data-contacts">
-                        <li className="about__data-contacts-item"><Link to="/" className="about__data-contacts-link">Facebook</Link></li>
-                        <li className="about__data-contacts-item"><Link to="/" className="about__data-contacts-link">Github</Link></li>
+                        <li className="about__data-contacts-item"><Link to="/" className="about__data-contacts-link page__link">Facebook</Link></li>
+                        <li className="about__data-contacts-item"><Link to="/" className="about__data-contacts-link page__link">Github</Link></li>
                     </ul>
 
                 </div>
@@ -32,19 +32,19 @@ function AboutMe(props) {
                 <h4 className="about__portfolio-title">Портфолио</h4>
                 <ul className="about__portfolio-list">
                     <li className="about__portfolio-list-item">
-                        <Link to="/" className="about__portfolio-list-link" target="_blank">
+                        <Link to="/" className="about__portfolio-list-link page__link" target="_blank">
                             Статичный сайт
                             <div className="about__portfolio-list-icon"></div>
                         </Link>
                     </li>
                     <li className="about__portfolio-list-item">
-                        <Link to="https://veronadracula.github.io/russian-travel/" className="about__portfolio-list-link" target="_blank">
+                        <Link to="https://veronadracula.github.io/russian-travel/" className="about__portfolio-list-link page__link" target="_blank">
                             Адаптивный сайт
                             <div className="about__portfolio-list-icon"></div>
                         </Link>
                     </li>
                     <li className="about__portfolio-list-item">
-                        <Link to="/" className="about__portfolio-list-link" target="_blank">
+                        <Link to="/" className="about__portfolio-list-link page__link" target="_blank">
                             Одностраничное приложение
                             <div className="about__portfolio-list-icon"></div>
                         </Link>

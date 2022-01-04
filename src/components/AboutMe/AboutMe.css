@@ -67,10 +67,6 @@
     text-decoration: none;
 }
 
-.about__data-contacts-link:hover {
-    opacity: 0.5;
-}
-
 .about__student-data-img {
     border-radius: 10px;
     height: 327px;
@@ -122,10 +118,6 @@
     justify-content: space-between;
     align-items: center;
 }
-.about__portfolio-list-link:hover {
-    opacity: 0.5;
-}
-
 
 .about__portfolio-list-icon {
     background: transparent 50% no-repeat url('../../images/arrow-min.svg');

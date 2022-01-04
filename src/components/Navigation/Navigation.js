@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, Route, Switch} from "react-router-dom";
 
-function Navigation(props) {
+function Navigation() {
     return (
         <div className="navigation">
             <Switch>
@@ -15,7 +15,7 @@ function Navigation(props) {
 
                 <Route path="/" >
                     <div className="navigation__main">
-                        <Link to="/signup" className="navigation__link navigation__link_type_main">Регистрация</Link>
+                        <Link to="/signup" className="navigation__link navigation__link_type_main page__link">Регистрация</Link>
                         <button className="navigation__button page__button">Войти</button>
                     </div>
                 </Route>

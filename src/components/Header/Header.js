@@ -4,12 +4,12 @@ import {Link, Route, Switch} from "react-router-dom";
 
 import Navigation from '../Navigation/Navigation.js';
 
-function Header(props) {
+function Header() {
     return (
         <header className="header">
             <div className="header__container page__content">
                 <div>
-                    <Link to="/" className="logo__link"><img className="logo" src={headerLogo} alt="логотип"/></Link>
+                    <Link to="/" className="logo__link page__link"><img className="logo" src={headerLogo} alt="логотип"/></Link>
                 </div>
                 <div className="header__navigation">
                     <Switch>
