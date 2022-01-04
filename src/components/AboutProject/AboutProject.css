@@ -1,5 +1,7 @@
 .project__container {
     min-height: 608px;
+    padding-top: 10px;
+    box-sizing: border-box;
 }
 
 .project__info {
