@@ -1,0 +1,135 @@
+.about__data {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 66px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+}
+
+.about__data-text {
+
+
+}
+
+.about__data-text-title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 1.16;
+    letter-spacing: -0.04em;
+    color: #FFF;
+    margin: 0 0 18px 0;
+}
+
+.about__data-text-subtitle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    color: #FFF;
+    mix-blend-mode: normal;
+    margin: 0 0 26px 0;
+}
+
+.about__data-text-info {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.57;
+    color: #FFF;
+    mix-blend-mode: normal;
+    max-width: 590px;
+    margin: 0 0 99px 0;
+}
+
+.about__data-contacts {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+.about__data-contacts-item {
+    margin: 0 20px 0 0;
+    padding: 0;
+}
+
+.about__data-contacts-item:last-child {
+    margin: 0;
+}
+
+.about__data-contacts-link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.about__data-contacts-link:hover {
+    opacity: 0.5;
+}
+
+.about__student-data-img {
+    border-radius: 10px;
+    height: 327px;
+    width: 270px;
+}
+
+.about__portfolio {
+
+}
+
+.about__portfolio-title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.11;
+    color: #8B8B8B;
+    mix-blend-mode: normal;
+    margin: 0 0 50px 0;
+}
+
+.about__portfolio-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+}
+
+.about__portfolio-list-item {
+    margin: 0;
+    padding: 20px 0 19px 0;
+    border-bottom: 1px solid #424242;
+}
+
+.about__portfolio-list-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+
+.about__portfolio-list-link {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 1.67;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.about__portfolio-list-link:hover {
+    opacity: 0.5;
+}
+
+
+.about__portfolio-list-icon {
+    background: transparent 50% no-repeat url('../../images/arrow-min.svg');
+    width: 29px;
+    height: 40px;
+
+}

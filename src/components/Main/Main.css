@@ -19,3 +19,9 @@
     box-sizing: border-box;
     min-height: 625px;
 }
+
+.about {
+    background-color: #202020;
+    box-sizing: border-box;
+    min-height: 1079px;
+}
