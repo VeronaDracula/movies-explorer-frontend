@@ -10,9 +10,7 @@ function Main() {
     return (
         <main className="content">
             <section className="promo">
-                <div className="promo__container page__content">
-                    <Promo />
-                </div>
+                <Promo />
             </section>
 
             <section className="project">

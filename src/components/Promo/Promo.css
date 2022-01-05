@@ -1,3 +1,10 @@
+.promo__container {
+    min-height: 574px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
 .promo__content {
     width: 100%;
 }
@@ -41,6 +48,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .promo__container {
+        min-height: 850px;
+        align-items: flex-start;
+    }
+
     .promo__content {
         display: flex;
         flex-direction: column;
