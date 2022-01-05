@@ -11,11 +11,6 @@
     box-sizing: border-box;
 }
 
-.about__data-text {
-
-
-}
-
 .about__data-text-title {
     font-style: normal;
     font-weight: normal;
@@ -78,10 +73,6 @@
     width: 270px;
 }
 
-.about__portfolio {
-
-}
-
 .about__portfolio-title {
     font-style: normal;
     font-weight: normal;
@@ -96,7 +87,6 @@
     padding: 0;
     margin: 0;
     list-style: none;
-
 }
 
 .about__portfolio-list-item {
@@ -109,7 +99,6 @@
     padding-bottom: 0;
     border-bottom: none;
 }
-
 
 .about__portfolio-list-link {
     font-style: normal;
@@ -128,5 +117,48 @@
     background: transparent 50% no-repeat url('../../images/arrow-min.svg');
     width: 29px;
     height: 40px;
+}
 
+@media screen and (max-width: 768px) {
+    .about__container {
+        padding-top: 0;
+    }
+
+    .about__data {
+        padding-bottom: 90px;
+    }
+
+    .about__data-text-title {
+        font-size: 40px;
+        line-height: 1;
+        margin: 0 0 16px 0;
+    }
+
+    .about__data-text-subtitle {
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 0 0 20px 0;
+    }
+
+    .about__data-text-info {
+        font-size: 12px;
+        line-height: 1.5;
+        max-width: 360px;
+        margin: 0 0 87px 0;
+    }
+
+    .about__student-data-img {
+        border-radius: 10px;
+        height: 307px;
+        width: 255px;
+    }
+
+    .about__portfolio-list-item {
+        border-bottom: 1px solid #E6E6E6;
+    }
+
+    .about__portfolio-list-link {
+        font-size: 28px;
+        line-height: 1.79;
+    }
 }
