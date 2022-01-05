@@ -21,12 +21,12 @@ function AboutMe() {
                     </p>
                     <ul className="about__data-contacts">
                         <li className="about__data-contacts-item">
-                            <a href="https://www.facebook.com/ekaterina.zenkova.1"
-                               className="about__data-contacts-link page__link"  target="_blank">Facebook</a>
+                            <a href="https://www.facebook.com/ekaterina.zenkova.1" className="about__data-contacts-link page__link"
+                               target="_blank" rel="noreferrer">Facebook</a>
                         </li>
                         <li className="about__data-contacts-item">
-                            <a href="https://github.com/VeronaDracula"
-                               className="about__data-contacts-link page__link" target="_blank">Github</a>
+                            <a href="https://github.com/VeronaDracula" className="about__data-contacts-link page__link"
+                               target="_blank" rel="noreferrer">Github</a>
                         </li>
                     </ul>
 
@@ -37,19 +37,22 @@ function AboutMe() {
                 <h4 className="about__portfolio-title">Портфолио</h4>
                 <ul className="about__portfolio-list">
                     <li className="about__portfolio-list-item">
-                        <a href="https://veronadracula.github.io/how-to-learn/" className="about__portfolio-list-link page__link" target="_blank">
+                        <a href="https://veronadracula.github.io/how-to-learn/" className="about__portfolio-list-link page__link"
+                           target="_blank" rel="noreferrer">
                             Статичный сайт
                             <div className="about__portfolio-list-icon"></div>
                         </a>
                     </li>
                     <li className="about__portfolio-list-item">
-                        <a href="https://veronadracula.github.io/russian-travel/" className="about__portfolio-list-link page__link" target="_blank">
+                        <a href="https://veronadracula.github.io/russian-travel/" className="about__portfolio-list-link page__link"
+                           target="_blank" rel="noreferrer">
                             Адаптивный сайт
                             <div className="about__portfolio-list-icon"></div>
                         </a>
                     </li>
                     <li className="about__portfolio-list-item">
-                        <a href="https://veronadracula.github.io/russian-travel/" className="about__portfolio-list-link page__link" target="_blank">
+                        <a href="https://veronadracula.github.io/russian-travel/" className="about__portfolio-list-link page__link"
+                           target="_blank" rel="noreferrer">
                             Одностраничное приложение
                             <div className="about__portfolio-list-icon"></div>
                         </a>

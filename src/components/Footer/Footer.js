@@ -9,15 +9,16 @@ function Footer() {
                     <p className="footer__date">&copy;2021</p>
                     <ul className="footer__list">
                         <li className="footer__list-item">
-                            <a href="https://practicum.yandex.ru/web/" className="footer__list-link page__link" target="_blank">Яндекс.Практикум</a>
+                            <a href="https://practicum.yandex.ru/web/"
+                               className="footer__list-link page__link" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
                         </li>
                         <li className="footer__list-item">
                             <a href="https://github.com/VeronaDracula"
-                               className="footer__list-link page__link" target="_blank">Github</a>
+                               className="footer__list-link page__link" target="_blank" rel="noreferrer">Github</a>
                         </li>
                         <li className="footer__list-item">
                             <a href="https://www.facebook.com/ekaterina.zenkova.1"
-                               className="footer__list-link page__link" target="_blank">Facebook</a>
+                               className="footer__list-link page__link" target="_blank" rel="noreferrer">Facebook</a>
                         </li>
                     </ul>
                 </div>

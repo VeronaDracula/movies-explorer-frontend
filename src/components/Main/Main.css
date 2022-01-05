@@ -7,6 +7,7 @@
     min-height: 574px;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .project {
@@ -24,4 +25,14 @@
     background-color: #202020;
     box-sizing: border-box;
     min-height: 1079px;
+}
+
+@media screen and (max-width: 768px) {
+    .promo__container {
+        min-height: 850px;
+        align-items: flex-start;
+    }
+
+
+
 }

@@ -3,7 +3,7 @@ import promoMainImg from '../../images/main_img.png';
 
 import NavTab from '../NavTab/NavTab';
 
-function Promo(props) {
+function Promo() {
 
     return (
         <div className="promo__content">
