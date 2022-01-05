@@ -2,7 +2,7 @@ import React from 'react';
 
 import MainTitle from '../MainTitle/MainTitle.js';
 
-function Techs(props) {
+function Techs() {
 
     return (
         <div className="technologies__container page__content">

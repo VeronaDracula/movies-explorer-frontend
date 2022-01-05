@@ -11,10 +11,6 @@
     padding-bottom: 110px;
 }
 
-.project__column {
-
-}
-
 .project__title {
     font-style: normal;
     font-weight: normal;
@@ -113,5 +109,4 @@
         display: grid;
         grid-template-columns: minmax(100px, 140px) minmax(184px, 528px);
     }
-
 }

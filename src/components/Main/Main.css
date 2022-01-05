@@ -19,3 +19,11 @@
     box-sizing: border-box;
     min-height: 1079px;
 }
+
+@media screen and (max-width: 768px) {
+    .technologies {
+        min-height: 567px;
+    }
+
+
+}

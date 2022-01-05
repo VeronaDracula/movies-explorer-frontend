@@ -5,7 +5,6 @@
     margin-top: 90px;
 }
 
-
 .technologies__title {
     font-style: normal;
     font-weight: normal;
@@ -55,4 +54,32 @@
 
 .technologies__list-item:last-child {
     margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .technologies__content {
+        margin-top: 80px;
+    }
+
+    .technologies__title {
+        margin: 0 0 22px 0;
+    }
+
+    .technologies__subtitle {
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 0 0 83px 0;
+    }
+
+    .technologies__list-item {
+        width: 84px;
+        height: 57px;
+
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+
+
+
 }
