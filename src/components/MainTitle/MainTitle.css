@@ -12,3 +12,9 @@
     margin: 0 0 23px 0;
     padding-top: 100px;
 }
+
+@media screen and (max-width: 768px) {
+    .section-title__title {
+        padding-top: 90px;
+    }
+}
