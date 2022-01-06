@@ -110,3 +110,51 @@
         grid-template-columns: minmax(100px, 140px) minmax(184px, 528px);
     }
 }
+
+@media screen and (max-width: 480px) {
+    .project__container {
+        min-height: 641px;
+    }
+
+    .page__content_type_promo {
+        max-width: 100%;
+    }
+
+    .project__info {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .project__column {
+        margin-bottom: 56px;
+    }
+
+    .project__column:last-child {
+        margin-bottom: 0;
+    }
+
+    .project__title {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0 0 16px 0;
+    }
+
+    .project__text {
+        font-size: 11px;
+        line-height: 1.45;
+    }
+
+    .project__scheme-color-box {
+        height: 35px;
+    }
+
+    .project__scheme-color-text {
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .project__scheme-text {
+        font-size: 11px;
+        line-height: 13px;
+        margin: 10px 0 0 0;
+    }
+}
