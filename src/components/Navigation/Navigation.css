@@ -25,3 +25,22 @@
     line-height: 1.33;
     color: #000;
 }
+
+@media screen and (max-width: 480px) {
+    .navigation__link {
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    .navigation__link_type_main {
+        margin-right: 14px;
+    }
+
+    .navigation__button {
+        height: 26px;
+        width: 54px;
+
+        font-size: 10px;
+        line-height: 1.6;
+    }
+}

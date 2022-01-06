@@ -6,7 +6,7 @@ import NavTab from '../NavTab/NavTab';
 function Promo() {
 
     return (
-        <div className="promo__container page__content">
+        <div className="promo__container page__content page__content_type_promo">
             <div className="promo__content">
                 <div className="promo__info">
                     <div className="promo__text">
