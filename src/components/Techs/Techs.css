@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 90px;
+    box-sizing: border-box;
 }
 
 .technologies__title {
@@ -32,10 +33,12 @@
     padding: 0;
     margin: 0 0 0 0;
     display: flex;
+    flex-wrap: wrap;
+    grid-gap: 10px;
 }
 
 .technologies__list-item {
-    margin: 0 10px 0 0;
+    /*margin: 0 10px 10px 0;*/
     width: 90px;
     height: 60px;
     background: #303030;
@@ -77,5 +80,27 @@
 
         font-size: 12px;
         line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .technologies__content {
+        margin-top: 60px;
+    }
+
+    .technologies__title {
+        font-size: 30px;
+        line-height: 36px;
+        margin: 0 0 24px 0;
+    }
+
+    .technologies__subtitle {
+        font-size: 11px;
+        line-height: 1.45;
+        margin: 0 0 50px 0;
+    }
+
+    .technologies__list {
+        max-width: 178px;
     }
 }

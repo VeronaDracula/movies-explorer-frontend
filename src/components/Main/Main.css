@@ -29,3 +29,13 @@
         min-height: 994px;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .technologies {
+        min-height: 651px;
+    }
+
+    .about {
+        min-height: 994px;
+    }
+}
