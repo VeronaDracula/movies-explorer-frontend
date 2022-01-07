@@ -1,5 +1,11 @@
-.search {
+.content {
     background: #202020;
+    flex: 1;
+}
+
+.search {
     box-sizing: border-box;
 }
+
+
 

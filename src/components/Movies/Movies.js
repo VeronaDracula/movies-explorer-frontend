@@ -2,7 +2,9 @@ import React from 'react';
 
 import SearchForm from '../SearchForm/SearchForm.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
-import Preloader from '../Preloader/Preloader.js';
+import MoreBtn from '../MoreBtn/MoreBtn.js';
+
+import './Movies.css';
 
 function Movies() {
 
@@ -11,13 +13,14 @@ function Movies() {
             <section className="search">
                 <SearchForm/>
             </section>
-            <section className="search">
+
+            <section className="movies">
                 <MoviesCardList/>
             </section>
-            <section className="search">
-                <Preloader/>
-            </section>
 
+            <section className="more-button page__content">
+                <MoreBtn/>
+            </section>
         </main>
     );
 }
