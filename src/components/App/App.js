@@ -14,16 +14,16 @@ function App() {
             <Header/>
 
             <Switch>
+                <Route exact path="/" >
+                    <Main/>
+                </Route>
+
                 <Route path="/signin">
 
                 </Route>
 
                 <Route path="/signup">
 
-                </Route>
-
-                <Route path="/" >
-                    <Main/>
                 </Route>
 
                 <Route path="/movies">
