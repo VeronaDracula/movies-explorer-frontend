@@ -2,12 +2,16 @@
     box-sizing: border-box;
     border-bottom: 1px solid #424242;
     min-height: 218px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .form {
     display: flex;
     justify-content: center;
     padding-top: 80px;
+    padding-bottom: 31px;
 }
 
 .form__input {

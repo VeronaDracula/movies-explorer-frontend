@@ -3,8 +3,13 @@ import React from 'react';
 function FilterCheckbox() {
 
     return (
-        <div >
+        <div className="filter">
+            <label className="filter__button">
+                <input className="filter__input" type="checkbox"/>
+                    <span className="filter__slider"></span>
+            </label>
 
+            <p className="filter__text">Короткометражки</p>
         </div>
     );
 }
