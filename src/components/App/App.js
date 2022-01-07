@@ -2,8 +2,10 @@ import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 
 import Header from '../Header/Header.js';
-import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
+
+import Main from '../Main/Main.js';
+import Movies from '../Movies/Movies.js';
 
 import './App.css';
 
@@ -14,10 +16,6 @@ function App() {
             <Header/>
 
             <Switch>
-                <Route exact path="/" >
-                    <Main/>
-                </Route>
-
                 <Route path="/signin">
 
                 </Route>
@@ -26,8 +24,12 @@ function App() {
 
                 </Route>
 
-                <Route path="/movies">
+                <Route exact path="/" >
+                    <Main/>
+                </Route>
 
+                <Route path="/movies">
+                    <Movies/>
                 </Route>
 
                 <Route path="/saved-movies">

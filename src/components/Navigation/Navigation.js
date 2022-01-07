@@ -6,19 +6,19 @@ function Navigation(props) {
     return (
         <div className={props.movies ? "navigation navigation_type_movies" : "navigation"}>
             <Switch>
-                <Route exact path="/" >
-                    <div className="navigation__main">
-                        <Link to="/signup" className="navigation__link navigation__link_type_main page__link">Регистрация</Link>
-                        <button className="navigation__button page__button">Войти</button>
-                    </div>
-                </Route>
-
                 <Route path="/signup">
 
                 </Route>
 
                 <Route path="/signin">
 
+                </Route>
+
+                <Route exact path="/" >
+                    <div className="navigation__main">
+                        <Link to="/signup" className="navigation__link navigation__link_type_main page__link">Регистрация</Link>
+                        <button className="navigation__button page__button">Войти</button>
+                    </div>
                 </Route>
 
                 <Route path="/movies">

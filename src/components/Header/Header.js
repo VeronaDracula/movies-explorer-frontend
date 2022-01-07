@@ -8,6 +8,14 @@ function Header() {
     return (
         <header className="header">
             <Switch>
+                <Route path="/signup">
+
+                </Route>
+
+                <Route path="/signin">
+
+                </Route>
+
                 <Route exact path="/" >
                     <div className="header__container">
                         <div className="header__content page__content">
@@ -17,14 +25,6 @@ function Header() {
                             <Navigation/>
                         </div>
                     </div>
-                </Route>
-
-                <Route path="/signup">
-
-                </Route>
-
-                <Route path="/signin">
-
                 </Route>
 
                 <Route path="/movies">
