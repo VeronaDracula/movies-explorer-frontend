@@ -11,6 +11,12 @@ function Movies() {
             <section className="search">
                 <SearchForm/>
             </section>
+            <section className="search">
+                <MoviesCardList/>
+            </section>
+            <section className="search">
+                <Preloader/>
+            </section>
 
         </main>
     );

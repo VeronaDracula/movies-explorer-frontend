@@ -4,7 +4,6 @@
     min-height: 218px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .form {
