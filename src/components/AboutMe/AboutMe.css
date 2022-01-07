@@ -153,6 +153,10 @@
         width: 255px;
     }
 
+    .about__portfolio-title {
+        color: #A0A0A0;
+    }
+
     .about__portfolio-list-item {
         border-bottom: 1px solid #E6E6E6;
     }
@@ -160,5 +164,66 @@
     .about__portfolio-list-link {
         font-size: 28px;
         line-height: 1.79;
+    }
+
+    .about__portfolio-list-icon {
+        background: transparent 50% no-repeat url('../../images/arrow_table-min.svg');
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about__data {
+        padding-top: 60px;
+        padding-bottom: 69px;
+        flex-direction: column;
+    }
+
+    .about__data-text {
+        order: 1;
+    }
+
+    .about__data-text-title {
+        font-size: 30px;
+        line-height: 36px;
+        margin: 0 0 20px 0;
+    }
+
+    .about__data-text-subtitle {
+        font-size: 11px;
+        line-height: 1.45;
+    }
+
+    .about__data-text-info {
+        font-size: 11px;
+        line-height: 1.45;
+        margin: 0 0 40px 0;
+    }
+
+    .about__data-contacts-item {
+        margin: 0 26px 0 0;
+    }
+
+    .about__student-data-img {
+        order: 0;
+        height: 352px;
+        width: 292px;
+        margin-bottom: 40px;
+    }
+
+    .about__portfolio-title {
+        font-size: 14px;
+        line-height: 1.43;
+        margin: 0 0 40px 0;
+    }
+
+    .about__portfolio-list-link {
+        font-size: 18px;
+        line-height: 1.56;
+    }
+
+    .about__portfolio-list-icon {
+        background: transparent 50% no-repeat url('../../images/arrow_mobile-min.svg');
+        width: 18px;
+        height: 28px;
     }
 }

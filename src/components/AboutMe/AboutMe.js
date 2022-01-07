@@ -29,7 +29,6 @@ function AboutMe() {
                                target="_blank" rel="noreferrer">Github</a>
                         </li>
                     </ul>
-
                 </div>
                 <img className="about__student-data-img" src={studentPhoto} alt="фото студента"/>
             </div>
