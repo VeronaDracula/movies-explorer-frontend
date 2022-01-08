@@ -1,4 +1,5 @@
 import React from 'react';
+import {Route, Switch} from "react-router-dom";
 
 import MoviesCard from '../MoviesCard/MoviesCard.js';
 
@@ -20,18 +21,28 @@ function MoviesCardList() {
     return (
         <div className="page__content">
             <ul className="cards">
-                <MoviesCard img={movie1}/>
-                <MoviesCard img={movie2}/>
-                <MoviesCard img={movie3}/>
-                <MoviesCard img={movie4}/>
-                <MoviesCard img={movie5}/>
-                <MoviesCard img={movie6}/>
-                <MoviesCard img={movie7}/>
-                <MoviesCard img={movie8}/>
-                <MoviesCard img={movie9}/>
-                <MoviesCard img={movie10}/>
-                <MoviesCard img={movie11}/>
-                <MoviesCard img={movie12}/>
+                <Switch>
+                    <Route path="/movies">
+                        <MoviesCard img={movie1}/>
+                        <MoviesCard img={movie2}/>
+                        <MoviesCard img={movie3}/>
+                        <MoviesCard img={movie4}/>
+                        <MoviesCard img={movie5}/>
+                        <MoviesCard img={movie6}/>
+                        <MoviesCard img={movie7}/>
+                        <MoviesCard img={movie8}/>
+                        <MoviesCard img={movie9}/>
+                        <MoviesCard img={movie10}/>
+                        <MoviesCard img={movie11}/>
+                        <MoviesCard img={movie12}/>
+                    </Route>
+
+                    <Route path="/saved-movies">
+                        <MoviesCard img={movie1}/>
+                        <MoviesCard img={movie2}/>
+                        <MoviesCard img={movie3}/>
+                    </Route>
+                </Switch>
             </ul>
         </div>
     );

@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer.js';
 
 import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
+import SavedMovies from '../SavedMovies/SavedMovies.js';
 
 import './App.css';
 
@@ -33,7 +34,7 @@ function App() {
                 </Route>
 
                 <Route path="/saved-movies">
-
+                    <SavedMovies/>
                 </Route>
 
                 <Route path="/profile">

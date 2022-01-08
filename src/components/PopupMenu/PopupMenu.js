@@ -15,10 +15,10 @@ function PopupMenu(props) {
                        <Link to="/" className="popup__menu-item-link page__link">Главная</Link>
                    </li>
                    <li className="popup__menu-item">
-                       <Link to="/movies" className="popup__menu-item-link page__link popup__menu-item-link_active">Фильмы</Link>
+                       <Link to="/movies" className="popup__menu-item-link page__link popup__menu-item-link_active" onClick={props.onClose}>Фильмы</Link>
                    </li>
                    <li className="popup__menu-item">
-                       <Link to="/saved-movies" className="popup__menu-item-link page__link">Сохранённые фильмы</Link>
+                       <Link to="/saved-movies" className="popup__menu-item-link page__link" onClick={props.onClose}>Сохранённые фильмы</Link>
                    </li>
                </ul>
 

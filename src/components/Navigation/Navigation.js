@@ -35,7 +35,7 @@ function Navigation(props) {
                 </Route>
 
                 <Route path="/movies">
-                    <button className="open-popup-menu" type="button" onClick={handlePopupMenuClick}></button>
+                    <button className="open-popup-menu page__button" type="button" onClick={handlePopupMenuClick}></button>
                     <div className="navigation__movies">
                         <ul className="navigation__list">
                             <li className="navigation__list-item">
@@ -54,7 +54,22 @@ function Navigation(props) {
                 </Route>
 
                 <Route path="/saved-movies">
+                    <button className="open-popup-menu page__button" type="button" onClick={handlePopupMenuClick}></button>
+                    <div className="navigation__movies">
+                        <ul className="navigation__list">
+                            <li className="navigation__list-item">
+                                <Link to="/movies" className="navigation__link navigation__link_type_movies navigation__link_active
+                                page__link">Фильмы</Link>
+                            </li>
+                            <li>
+                                <Link to="/saved-movies" className="navigation__link navigation__link_type_movies
+                                page__link">Сохранённые фильмы</Link>
+                            </li>
+                        </ul>
+                        <Account/>
+                    </div>
 
+                    <PopupMenu isOpen={isPopupMenuOpen} onClose={closePopup}/>
                 </Route>
             </Switch>
         </div>
