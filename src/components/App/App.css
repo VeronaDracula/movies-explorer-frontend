@@ -40,4 +40,12 @@
   .page__content_type_promo {
     max-width: 100%;
   }
+
+  .page__content {
+    max-width: 94%;
+  }
+
+  .page__content_type_header {
+    max-width: 92%;
+  }
 }

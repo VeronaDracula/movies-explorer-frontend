@@ -68,3 +68,10 @@
 .filter__slider:before {
     border-radius: 50%;
 }
+
+@media screen and (max-width: 480px) {
+    .filter__text {
+        font-size: 11px;
+        line-height: 1.64;
+    }
+}

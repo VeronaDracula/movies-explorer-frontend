@@ -15,3 +15,11 @@
         grid-template-columns: repeat(auto-fit, minmax(339px, 1fr));
     }
 }
+
+@media screen and (max-width: 480px) {
+    .cards {
+        margin: 50px 0 30px 0;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}

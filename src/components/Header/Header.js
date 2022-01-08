@@ -29,7 +29,7 @@ function Header() {
 
                 <Route path="/movies">
                     <div className="header__container header__container_type_not-main">
-                        <div className="header__content header__content_type_movies page__content">
+                        <div className="header__content header__content_type_movies page__content page__content_type_header">
                             <div>
                                 <Link to="/" className="logo__link logo_type_movies page__link">
                                     <img className="logo" src={headerLogo} alt="логотип"/>
