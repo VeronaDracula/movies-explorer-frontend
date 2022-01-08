@@ -1,8 +1,22 @@
 import React from 'react';
 import {Link, Route, Switch} from "react-router-dom";
+
 import accountIcon from "../../images/account.svg";
 
+import PopupMenu from '../PopupMenu/PopupMenu.js';
+
 function Navigation(props) {
+
+    const [isPopupMenuOpen, setIsPopupMenuOpen] = React.useState(false);
+
+    function handlePopupMenuClick() {
+        setIsPopupMenuOpen(true);
+    }
+
+    function closePopup() {
+        setIsPopupMenuOpen(false);
+    }
+
     return (
         <div className={props.movies ? "navigation navigation_type_movies" : "navigation"}>
             <Switch>
@@ -22,7 +36,7 @@ function Navigation(props) {
                 </Route>
 
                 <Route path="/movies">
-                    <button className="open-popup-menu" type="button"></button>
+                    <button className="open-popup-menu" type="button" onClick={handlePopupMenuClick}></button>
                     <div className="navigation__movies">
                         <ul className="navigation__list">
                             <li className="navigation__list-item">
@@ -41,6 +55,8 @@ function Navigation(props) {
                             </div>
                         </div>
                     </div>
+
+                    <PopupMenu isOpen={isPopupMenuOpen} onClose={closePopup}/>
                 </Route>
 
                 <Route path="/saved-movies">
