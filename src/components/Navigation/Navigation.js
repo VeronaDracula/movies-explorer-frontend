@@ -22,6 +22,7 @@ function Navigation(props) {
                 </Route>
 
                 <Route path="/movies">
+                    <button className="open-popup-menu" type="button"></button>
                     <div className="navigation__movies">
                         <ul className="navigation__list">
                             <li className="navigation__list-item">

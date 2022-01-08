@@ -5,6 +5,13 @@
 
     display: grid;
     gap: 30px 24px;
-    grid-template-columns: repeat(auto-fit,minmax(364px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(364px, 1fr));
     justify-items: center;
+}
+
+@media screen and (max-width: 845px) {
+    .cards {
+        gap: 36px 30px;
+        grid-template-columns: repeat(auto-fit, minmax(339px, 1fr));
+    }
 }

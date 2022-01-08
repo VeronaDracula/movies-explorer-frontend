@@ -1,6 +1,7 @@
 .navigation_type_movies {
     width: 100%;
 }
+
 .navigation__link {
     font-style: normal;
     font-weight: 500;
@@ -85,6 +86,34 @@
     bottom: 0;
     right: 0;
 }
+
+.open-popup-menu {
+    background: transparent 50% no-repeat url('../../images/toggle.svg');
+    width: 44px;
+    height: 44px;
+    border: none;
+    display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .navigation__movies {
+        display: none;
+    }
+
+    .open-popup-menu {
+        display: block;
+    }
+
+    .navigation_type_movies {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+}
+
 
 @media screen and (max-width: 480px) {
     .navigation__link {

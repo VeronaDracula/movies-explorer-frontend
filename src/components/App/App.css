@@ -30,6 +30,12 @@
   }
 }
 
+@media screen and (max-width: 845px) {
+  .page__content {
+    max-width: 93%;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .page__content_type_promo {
     max-width: 100%;

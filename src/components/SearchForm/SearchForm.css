@@ -44,3 +44,9 @@
     line-height: 1.5;
     color: #FFF;
 }
+
+@media screen and (max-width: 768px) {
+    .form {
+        padding-bottom: 30px;
+    }
+}
