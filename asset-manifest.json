@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/movies-explorer-frontend/static/css/main.62e5c436.chunk.css",
+    "main.js": "/movies-explorer-frontend/static/js/main.883d6519.chunk.js",
+    "main.js.map": "/movies-explorer-frontend/static/js/main.883d6519.chunk.js.map",
+    "runtime-main.js": "/movies-explorer-frontend/static/js/runtime-main.d52517b9.js",
+    "runtime-main.js.map": "/movies-explorer-frontend/static/js/runtime-main.d52517b9.js.map",
+    "static/js/2.1a0ce9bc.chunk.js": "/movies-explorer-frontend/static/js/2.1a0ce9bc.chunk.js",
+    "static/js/2.1a0ce9bc.chunk.js.map": "/movies-explorer-frontend/static/js/2.1a0ce9bc.chunk.js.map",
+    "static/js/3.ca4a61e2.chunk.js": "/movies-explorer-frontend/static/js/3.ca4a61e2.chunk.js",
+    "static/js/3.ca4a61e2.chunk.js.map": "/movies-explorer-frontend/static/js/3.ca4a61e2.chunk.js.map",
+    "index.html": "/movies-explorer-frontend/index.html",
+    "static/css/main.62e5c436.chunk.css.map": "/movies-explorer-frontend/static/css/main.62e5c436.chunk.css.map",
+    "static/js/2.1a0ce9bc.chunk.js.LICENSE.txt": "/movies-explorer-frontend/static/js/2.1a0ce9bc.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/movies-explorer-frontend/static/media/toggle.b71b3a96.svg",
+    "static/media/account.bb45144c.svg": "/movies-explorer-frontend/static/media/account.bb45144c.svg",
+    "static/media/PopupMenu.css": "/movies-explorer-frontend/static/media/close-menu.47a9344c.svg",
+    "static/media/logo.537e5758.svg": "/movies-explorer-frontend/static/media/logo.537e5758.svg",
+    "static/media/main_img.689dfeae.png": "/movies-explorer-frontend/static/media/main_img.689dfeae.png",
+    "static/media/movie-1.c5a6c058.jpg": "/movies-explorer-frontend/static/media/movie-1.c5a6c058.jpg",
+    "static/media/movie-10.2d3a23ec.jpg": "/movies-explorer-frontend/static/media/movie-10.2d3a23ec.jpg",
+    "static/media/movie-11.173a6ea5.jpg": "/movies-explorer-frontend/static/media/movie-11.173a6ea5.jpg",
+    "static/media/movie-12.dd9d90ce.jpg": "/movies-explorer-frontend/static/media/movie-12.dd9d90ce.jpg",
+    "static/media/movie-2.61d18ca3.jpg": "/movies-explorer-frontend/static/media/movie-2.61d18ca3.jpg",
+    "static/media/movie-3.e65c61ba.jpg": "/movies-explorer-frontend/static/media/movie-3.e65c61ba.jpg",
+    "static/media/movie-4.030f4d6b.jpg": "/movies-explorer-frontend/static/media/movie-4.030f4d6b.jpg",
+    "static/media/movie-5.c3df2751.jpg": "/movies-explorer-frontend/static/media/movie-5.c3df2751.jpg",
+    "static/media/movie-6.eaf65254.jpg": "/movies-explorer-frontend/static/media/movie-6.eaf65254.jpg",
+    "static/media/movie-7.ecac2ad9.jpg": "/movies-explorer-frontend/static/media/movie-7.ecac2ad9.jpg",
+    "static/media/movie-8.eadd629d.jpg": "/movies-explorer-frontend/static/media/movie-8.eadd629d.jpg",
+    "static/media/movie-9.06bc3de3.jpg": "/movies-explorer-frontend/static/media/movie-9.06bc3de3.jpg",
+    "static/media/student-photo.5325c2c9.jpg": "/movies-explorer-frontend/static/media/student-photo.5325c2c9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d52517b9.js",
+    "static/js/2.1a0ce9bc.chunk.js",
+    "static/css/main.62e5c436.chunk.css",
+    "static/js/main.883d6519.chunk.js"
+  ]
+}
