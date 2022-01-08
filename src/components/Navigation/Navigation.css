@@ -56,37 +56,6 @@
     list-style: none;
 }
 
-.navigation__account {
-    display: flex;
-    align-items: center;
-}
-
-.navigation__account-text {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.14;
-    color: #FFFFFF;
-    margin: 0 17px 0 0;
-}
-
-.navigation__account-img-box {
-    background: #313131;
-    border-radius: 4px;
-    width: 26px;
-    height: 30px;
-    position: relative;
-}
-
-.navigation__account-img {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-
 .open-popup-menu {
     background: transparent 50% no-repeat url('../../images/toggle.svg');
     width: 44px;

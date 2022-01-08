@@ -1,9 +1,8 @@
 import React from 'react';
 import {Link, Route, Switch} from "react-router-dom";
 
-import accountIcon from "../../images/account.svg";
-
 import PopupMenu from '../PopupMenu/PopupMenu.js';
+import Account from '../Account/Account.js';
 
 function Navigation(props) {
 
@@ -48,12 +47,7 @@ function Navigation(props) {
                                 page__link">Сохранённые фильмы</Link>
                             </li>
                         </ul>
-                        <div className="navigation__account">
-                            <p className="navigation__account-text">Аккаунт</p>
-                            <div className="navigation__account-img-box">
-                                <img className="navigation__account-img" src={accountIcon} alt="иконка аккаунта"/>
-                            </div>
-                        </div>
+                        <Account/>
                     </div>
 
                     <PopupMenu isOpen={isPopupMenuOpen} onClose={closePopup}/>

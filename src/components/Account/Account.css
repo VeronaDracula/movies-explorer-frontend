@@ -1,0 +1,30 @@
+.account {
+    display: flex;
+    align-items: center;
+}
+
+.account__text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    color: #FFFFFF;
+    margin: 0 17px 0 0;
+}
+
+.account__img-box {
+    background: #313131;
+    border-radius: 4px;
+    width: 26px;
+    height: 30px;
+    position: relative;
+}
+
+.account__img {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

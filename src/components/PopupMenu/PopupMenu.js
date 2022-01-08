@@ -1,7 +1,8 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 import './PopupMenu.css';
-import {Link} from "react-router-dom";
+import Account from '../Account/Account.js';
 
 function PopupMenu(props) {
 
@@ -21,8 +22,8 @@ function PopupMenu(props) {
                    </li>
                </ul>
 
+               <Account/>
            </div>
-
        </section>
     );
 }
