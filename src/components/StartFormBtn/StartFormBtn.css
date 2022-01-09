@@ -15,6 +15,10 @@
     margin-bottom: 16px;
 }
 
+.form-start__btn_type_login {
+    margin-top: 179px;
+}
+
 @media screen and (max-width: 480px) {
     .form-start__btn {
         font-size: 12px;
@@ -22,5 +26,9 @@
 
         margin-top: 157px;
         margin-bottom: 14px;
+    }
+
+    .form-start__btn_type_login {
+        margin-top: 267px;
     }
 }

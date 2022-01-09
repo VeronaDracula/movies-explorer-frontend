@@ -8,7 +8,7 @@ function StartChoice(props) {
     return (
         <div className="start-page__actives">
             <p className="start-page__actives-text">{props.text}</p>
-            <Link to="/" className="start-page__actives-link page__link">{props.linkText}</Link>
+            <Link to={props.url} className="start-page__actives-link page__link">{props.linkText}</Link>
         </div>
     );
 }

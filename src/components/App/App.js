@@ -8,6 +8,7 @@ import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
 import SavedMovies from '../SavedMovies/SavedMovies.js';
 import Register from '../Register/Register.js';
+import Login from '../Login/Login.js';
 
 import './App.css';
 
@@ -19,7 +20,7 @@ function App() {
 
             <Switch>
                 <Route path="/signin">
-
+                    <Login/>
                 </Route>
 
                 <Route path="/signup">

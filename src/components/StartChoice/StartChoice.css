@@ -21,3 +21,16 @@
     color: #4285F4;
     text-decoration: none;
 }
+
+@media screen and (max-width: 480px) {
+    .start-page__actives-text {
+        font-size: 12px;
+        line-height: 15px;
+        margin: 0 7px 0 0;
+    }
+
+    .start-page__actives-link {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
