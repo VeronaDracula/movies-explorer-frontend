@@ -1,0 +1,16 @@
+.form-start__btn {
+    width: 100%;
+    height: 45px;
+    background: #4285F4;
+    border-radius: 3px;
+    border: none;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+
+    margin-top: 69px;
+    margin-bottom: 16px;
+}

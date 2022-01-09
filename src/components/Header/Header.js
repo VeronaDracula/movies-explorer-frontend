@@ -1,6 +1,7 @@
 import React from 'react';
-import headerLogo from '../../images/logo.svg';
 import {Link, Route, Switch} from "react-router-dom";
+
+import headerLogo from '../../images/logo.svg';
 
 import Navigation from '../Navigation/Navigation.js';
 
@@ -16,7 +17,7 @@ function Header() {
 
                 </Route>
 
-                <Route exact path="/" >
+                <Route path="/" >
                     <div className="header__container">
                         <div className="header__content page__content">
                             <div>

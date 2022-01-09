@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer.js';
 import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
 import SavedMovies from '../SavedMovies/SavedMovies.js';
+import Register from '../Register/Register.js';
 
 import './App.css';
 
@@ -22,27 +23,28 @@ function App() {
                 </Route>
 
                 <Route path="/signup">
-
+                    <Register/>
                 </Route>
 
-                <Route exact path="/" >
+                <Route path="/" >
                     <Main/>
+                    <Footer/>
                 </Route>
 
                 <Route path="/movies">
                     <Movies/>
+                    <Footer/>
                 </Route>
 
                 <Route path="/saved-movies">
                     <SavedMovies/>
+                    <Footer/>
                 </Route>
 
                 <Route path="/profile">
 
                 </Route>
             </Switch>
-
-            <Footer />
         </div>
     </div>
   );

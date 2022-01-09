@@ -27,7 +27,7 @@ function Navigation(props) {
 
                 </Route>
 
-                <Route exact path="/" >
+                <Route path="/" >
                     <div className="navigation__main">
                         <Link to="/signup" className="navigation__link navigation__link_type_main page__link">Регистрация</Link>
                         <button className="navigation__button page__button">Войти</button>

@@ -1,0 +1,12 @@
+.start-page__top {
+    padding-top: 70px;
+}
+
+.start-page__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    margin: 40px 0 40px 0;
+}
