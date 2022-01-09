@@ -1,9 +1,9 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 import StartTop from '../StartTop/StartTop.js';
 import StartForm from '../StartForm/StartForm.js';
 import StartFormBtn from '../StartFormBtn/StartFormBtn.js';
+import StartChoice from '../StartChoice/StartChoice.js';
 
 import './Register.css';
 
@@ -22,10 +22,7 @@ function Register() {
                     <StartFormBtn buttonText="Зарегистрироваться"/>
                 </form>
 
-                <div className="start-page__actives">
-                    <p className="start-page__actives-text">Уже зарегистрированы?</p>
-                    <Link to="/" className="start-page__actives-link page__link">Войти</Link>
-                </div>
+                <StartChoice text="Уже зарегистрированы?" linkText="Войти"/>
             </section>
         </main>
     );

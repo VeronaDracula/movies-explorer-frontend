@@ -1,0 +1,23 @@
+.start-page__actives {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-page__actives-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #8B8B8B;
+    margin: 0 6px 0 0;
+}
+
+.start-page__actives-link {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4285F4;
+    text-decoration: none;
+}
