@@ -45,6 +45,10 @@
     max-width: 94%;
   }
 
+  .page__content_type_start-page {
+    max-width: 82%;
+  }
+
   .page__content_type_header {
     max-width: 92%;
   }

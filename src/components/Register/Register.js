@@ -11,7 +11,7 @@ function Register() {
 
     return (
         <main className="content content_type_start-page">
-            <section className="start-page">
+            <section className="start-page page__content page__content_type_start-page">
                <StartTop title="Добро пожаловать!"/>
 
                 <form className="form-start" name="form-start" noValidate>
