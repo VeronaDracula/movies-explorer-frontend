@@ -6,36 +6,12 @@ import Account from '../Account/Account.js';
 
 function Navigation(props) {
 
-    const [isPopupMenuOpen, setIsPopupMenuOpen] = React.useState(false);
-
-    function handlePopupMenuClick() {
-        setIsPopupMenuOpen(true);
-    }
-
-    function closePopup() {
-        setIsPopupMenuOpen(false);
-    }
-
     return (
         <div className={props.movies ? "navigation navigation_type_movies" : "navigation"}>
             <Switch>
-                <Route path="/signup">
 
-                </Route>
-
-                <Route path="/signin">
-
-                </Route>
-
-                <Route path="/" >
-                    <div className="navigation__main">
-                        <Link to="/signup" className="navigation__link navigation__link_type_main page__link">Регистрация</Link>
-                        <button className="navigation__button page__button">Войти</button>
-                    </div>
-                </Route>
-
-                <Route path={["/saved-movies", "/movies"]}>
-                    <button className="open-popup-menu page__button" type="button" onClick={handlePopupMenuClick}></button>
+                <Route path={["/saved-movies", "/movies", "/profile"]}>
+                    <button className="open-popup-menu page__button" type="button" onClick={props.onMenu}></button>
                     <div className="navigation__movies">
                         <ul className="navigation__list">
                             <li className="navigation__list-item">
@@ -50,7 +26,14 @@ function Navigation(props) {
                         <Account/>
                     </div>
 
-                    <PopupMenu isOpen={isPopupMenuOpen} onClose={closePopup}/>
+                    <PopupMenu isOpen={props.isOpen} onClose={props.onClose} typePage="popup__container_type_menu"/>
+                </Route>
+
+                <Route path="/" >
+                    <div className="navigation__main">
+                        <Link to="/signup" className="navigation__link navigation__link_type_main page__link">Регистрация</Link>
+                        <button className="navigation__button page__button">Войти</button>
+                    </div>
                 </Route>
             </Switch>
         </div>

@@ -8,7 +8,7 @@ function PopupMenu(props) {
 
     return (
        <section className={props.isOpen ? "popup popup_type_menu popup_is-opened" : "popup popup_type_menu"}>
-           <div className="popup__container">
+           <div className={`popup__container ${props.typePage}`}>
                <button className="popup__close-btn page__button" type="button" onClick={props.onClose}></button>
                <ul className="popup__menu">
                    <li className="popup__menu-item">

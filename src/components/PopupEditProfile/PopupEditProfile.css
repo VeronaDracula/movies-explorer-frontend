@@ -1,0 +1,23 @@
+.popup_type_edit-profile {
+    justify-content: center;
+}
+
+.popup__container_type_edit-profile {
+    width: 500px;
+    height: 350px;
+    background: #202020;
+    border-radius: 3px;
+    padding: 25px 15px 15px 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-profile {
+    display: grid;
+    grid-template-columns: minmax(260px, 396px);
+}
+
+

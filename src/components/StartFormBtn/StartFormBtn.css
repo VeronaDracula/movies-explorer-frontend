@@ -19,6 +19,10 @@
     margin-top: 179px;
 }
 
+.form-start__btn_type_profile {
+    margin-top: 40px;
+}
+
 @media screen and (max-width: 480px) {
     .form-start__btn {
         font-size: 12px;
