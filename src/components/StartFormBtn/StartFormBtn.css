@@ -35,4 +35,8 @@
     .form-start__btn_type_login {
         margin-top: 267px;
     }
+
+    .form-start__btn_type_profile {
+        margin-top: 35px;
+    }
 }

@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile.js';
 
 import './Profile.css';
-import PopupMenu from "../PopupMenu/PopupMenu";
 
 function Profile(props) {
 

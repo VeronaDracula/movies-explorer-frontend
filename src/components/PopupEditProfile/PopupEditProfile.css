@@ -20,4 +20,19 @@
     grid-template-columns: minmax(260px, 396px);
 }
 
+@media screen and (max-width: 480px) {
+    .popup__container_type_edit-profile {
+        width: 290px;
+        height: 350px;
+        background: #202020;
+        border-radius: 3px;
+        padding: 25px 10px 10px 10px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 
