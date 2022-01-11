@@ -1,4 +1,5 @@
 import React from 'react';
+import './MoviesCard.css';
 
 function MoviesCard(props) {
 
@@ -11,7 +12,7 @@ function MoviesCard(props) {
                 </div>
                 <div className="card__add-btn page__button"></div>
             </div>
-            <img className="card__image" src={props.img} alt=""/>
+            <img className="card__image" src={props.img} alt="название фильма"/>
         </li>
     );
 }

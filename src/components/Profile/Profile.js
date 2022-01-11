@@ -1,9 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import './Profile.css';
 
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile.js';
-
-import './Profile.css';
 
 function Profile(props) {
 

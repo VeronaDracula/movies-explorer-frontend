@@ -1,4 +1,6 @@
 import React from 'react';
+import './Promo.css';
+
 import promoMainImg from '../../images/main_img.png';
 
 import NavTab from '../NavTab/NavTab';

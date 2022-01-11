@@ -1,11 +1,10 @@
 import React from 'react';
+import './Login.css';
 
 import StartTop from '../StartTop/StartTop.js';
 import StartForm from '../StartForm/StartForm.js';
 import StartFormBtn from '../StartFormBtn/StartFormBtn.js';
 import StartChoice from '../StartChoice/StartChoice.js';
-
-import './Login.css';
 
 function Login() {
 

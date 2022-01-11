@@ -1,11 +1,10 @@
 import React from 'react';
+import './Register.css';
 
 import StartTop from '../StartTop/StartTop.js';
 import StartForm from '../StartForm/StartForm.js';
 import StartFormBtn from '../StartFormBtn/StartFormBtn.js';
 import StartChoice from '../StartChoice/StartChoice.js';
-
-import './Register.css';
 
 function Register() {
 

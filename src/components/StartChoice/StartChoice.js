@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-
 import './StartChoice.css';
 
 function StartChoice(props) {

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './StartForm.css';
 
 function StartForm(props) {

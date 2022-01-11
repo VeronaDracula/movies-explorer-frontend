@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
+import './MoviesCardList.css';
 
 import MoviesCard from '../MoviesCard/MoviesCard.js';
 

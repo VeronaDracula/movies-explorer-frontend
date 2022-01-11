@@ -1,4 +1,5 @@
 import React from 'react';
+import './AboutMe.css';
 
 import studentPhoto from '../../images/student-photo.jpg';
 
@@ -50,7 +51,7 @@ function AboutMe() {
                         </a>
                     </li>
                     <li className="about__portfolio-list-item">
-                        <a href="https://veronadracula.github.io/russian-travel/" className="about__portfolio-list-link page__link"
+                        <a href="https://mesto.practicum.nomoredomains.rocks" className="about__portfolio-list-link page__link"
                            target="_blank" rel="noreferrer">
                             Одностраничное приложение
                             <div className="about__portfolio-list-icon"></div>

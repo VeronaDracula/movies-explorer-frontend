@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './StartFormBtn.css';
 
 function StartFormBtn(props) {

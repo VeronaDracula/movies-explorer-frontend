@@ -1,4 +1,5 @@
 import React from 'react';
+import './AboutProject.css';
 
 import MainTitle from '../MainTitle/MainTitle.js';
 

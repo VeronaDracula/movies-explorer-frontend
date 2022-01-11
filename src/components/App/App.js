@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
+import './App.css';
 
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
@@ -10,8 +11,6 @@ import SavedMovies from '../SavedMovies/SavedMovies.js';
 import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import Profile from '../Profile/Profile.js';
-
-import './App.css';
 
 function App() {
 
