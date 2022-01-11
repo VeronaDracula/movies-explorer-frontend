@@ -32,10 +32,15 @@
     color: #8B8B8B;
 }
 
+.form-search__input:focus {
+    border: 1px solid #fff;
+}
+
 .form-search__btn-search {
     background: #4285F4;
     border-radius: 40px;
     border: none;
+    min-width: 70px;
     width: 70px;
     height: 44px;
 
@@ -67,6 +72,5 @@
 
         font-size: 12px;
         line-height: 1.5;
-        max-width: 212px;
     }
 }

@@ -32,7 +32,7 @@ function Navigation(props) {
                 <Route path="/" >
                     <div className="navigation__main">
                         <Link to="/signup" className="navigation__link navigation__link_type_main page__link">Регистрация</Link>
-                        <button className="navigation__button page__button">Войти</button>
+                        <Link to="/signin" className="navigation__link-color page__link">Войти</Link>
                     </div>
                 </Route>
             </Switch>

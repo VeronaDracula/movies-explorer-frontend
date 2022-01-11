@@ -35,6 +35,10 @@
     color: #FFFFFF;
 }
 
+.form-start__input:focus {
+    border: 1px solid #fff;
+}
+
 .form-start__input_type_error {
     color: #EE3465;
 }

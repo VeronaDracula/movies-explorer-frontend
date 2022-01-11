@@ -6,7 +6,7 @@ function Techs() {
 
     return (
         <div className="technologies__container page__content">
-            <MainTitle buttonText={"Технологии"} technologies="Технологии"/>
+            <MainTitle buttonText={"Технологии"} typePage="section-title_type_technologies"/>
             <div className="technologies__content">
                 <h3 className="technologies__title">7 технологий</h3>
                 <p className="technologies__subtitle">На курсе веб-разработки мы освоили технологии,
