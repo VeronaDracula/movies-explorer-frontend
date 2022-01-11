@@ -52,8 +52,6 @@
 
 .card__btn_active {
     background: transparent 50% no-repeat url('../../images/save_active.svg');
-    width: 30px;
-    height: 30px;
 }
 
 .card__image {
