@@ -36,13 +36,21 @@
     margin: 0;
 }
 
-.card__add-btn {
-    background: transparent 50% no-repeat url('../../images/save.svg');
+.card__btn {
     width: 30px;
     height: 30px;
+    border: none;
 }
 
-.card__add-btn_active {
+.card__btn_type_add {
+    background: transparent 50% no-repeat url('../../images/save.svg');
+}
+
+.card__btn_type_close {
+    background: transparent 50% no-repeat url('../../images/close.svg');
+}
+
+.card__btn_active {
     background: transparent 50% no-repeat url('../../images/save_active.svg');
     width: 30px;
     height: 30px;

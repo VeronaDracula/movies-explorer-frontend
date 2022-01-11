@@ -11,6 +11,14 @@
     padding-bottom: 110px;
 }
 
+.project__column {
+    margin-right: 10px;
+}
+
+.project__column:last-child {
+    margin-right: 0;
+}
+
 .project__title {
     font-style: normal;
     font-weight: normal;

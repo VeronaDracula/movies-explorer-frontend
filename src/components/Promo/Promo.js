@@ -1,7 +1,7 @@
 import React from 'react';
 import './Promo.css';
 
-import promoMainImg from '../../images/main_img.png';
+import promoMainImg from '../../images/promo-img.svg';
 
 import NavTab from '../NavTab/NavTab';
 

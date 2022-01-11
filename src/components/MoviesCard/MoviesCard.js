@@ -10,7 +10,8 @@ function MoviesCard(props) {
                     <h2 className="card__name">33 слова о дизайне</h2>
                     <p className="card__time">1ч 47м</p>
                 </div>
-                <div className="card__add-btn page__button"></div>
+                <button className={props.typePageBtn ? `card__btn ${props.typePageBtn} page__button` : "card__btn"}
+                        type="button"></button>
             </div>
             <img className="card__image" src={props.img} alt="название фильма"/>
         </li>

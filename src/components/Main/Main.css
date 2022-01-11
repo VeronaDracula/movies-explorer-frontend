@@ -33,6 +33,7 @@
 @media screen and (max-width: 480px) {
     .technologies {
         min-height: 651px;
+        background-color: #202020;
     }
 
     .about {

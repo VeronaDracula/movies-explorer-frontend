@@ -24,24 +24,24 @@ function MoviesCardList() {
             <ul className="cards">
                 <Switch>
                     <Route path="/movies">
-                        <MoviesCard img={movie1}/>
-                        <MoviesCard img={movie2}/>
-                        <MoviesCard img={movie3}/>
-                        <MoviesCard img={movie4}/>
-                        <MoviesCard img={movie5}/>
-                        <MoviesCard img={movie6}/>
-                        <MoviesCard img={movie7}/>
-                        <MoviesCard img={movie8}/>
-                        <MoviesCard img={movie9}/>
-                        <MoviesCard img={movie10}/>
-                        <MoviesCard img={movie11}/>
-                        <MoviesCard img={movie12}/>
+                        <MoviesCard img={movie1} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie2} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie3} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie4} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie5} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie6} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie7} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie8} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie9} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie10} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie11} typePageBtn="card__btn_type_add"/>
+                        <MoviesCard img={movie12} typePageBtn="card__btn_type_add"/>
                     </Route>
 
                     <Route path="/saved-movies">
-                        <MoviesCard img={movie1}/>
-                        <MoviesCard img={movie2}/>
-                        <MoviesCard img={movie3}/>
+                        <MoviesCard img={movie1} typePageBtn="card__btn_type_close"/>
+                        <MoviesCard img={movie2} typePageBtn="card__btn_type_close"/>
+                        <MoviesCard img={movie3} typePageBtn="card__btn_type_close"/>
                     </Route>
                 </Switch>
             </ul>
