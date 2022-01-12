@@ -1,0 +1,77 @@
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter__text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #FFF;
+    margin: 0;
+}
+
+
+.filter__button {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 14px;
+    margin-right: 13px;
+}
+
+.filter__input {
+    display: none;
+}
+.filter__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2F2F2F;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.filter__slider:before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #FFFFFF;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.filter__input:checked + .filter__slider {
+    background-color: #3DDC84;
+}
+
+.filter__input:focus + .filter__slider {
+    box-shadow: 0 0 1px #3DDC84;
+}
+
+.filter__input:checked + .filter__slider:before {
+    -webkit-transform: translateX(19px);
+    -ms-transform: translateX(19px);
+    transform: translateX(19px);
+}
+
+.filter__slider {
+    border-radius: 20px;
+}
+
+.filter__slider:before {
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 480px) {
+    .filter__text {
+        font-size: 11px;
+        line-height: 1.64;
+    }
+}

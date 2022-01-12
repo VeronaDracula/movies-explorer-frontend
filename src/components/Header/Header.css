@@ -1,0 +1,35 @@
+.header__container {
+    background-color: #073042;
+}
+
+.header__container_type_not-main {
+    background-color: #202020;
+}
+
+.header__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 74px;
+}
+
+.header__content_type_movies {
+    justify-content: flex-start;
+}
+
+.logo {
+    height: 38px;
+    width: 38px;
+}
+
+.logo_type_movies {
+    margin-right: 44px;
+}
+
+/*@media screen and (max-width: 768px) {*/
+/*    .header__content_type_movies {*/
+/*        justify-content: space-between;*/
+/*    }*/
+/*}*/
+

@@ -1,0 +1,42 @@
+.form-start__btn {
+    width: 100%;
+    height: 45px;
+    background: #4285F4;
+    border-radius: 3px;
+    border: none;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+
+    margin-top: 69px;
+    margin-bottom: 16px;
+}
+
+.form-start__btn_type_login {
+    margin-top: 179px;
+}
+
+.form-start__btn_type_profile {
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 480px) {
+    .form-start__btn {
+        font-size: 12px;
+        line-height: 15px;
+
+        margin-top: 157px;
+        margin-bottom: 14px;
+    }
+
+    .form-start__btn_type_login {
+        margin-top: 267px;
+    }
+
+    .form-start__btn_type_profile {
+        margin-top: 35px;
+    }
+}

@@ -1,0 +1,11 @@
+.content_type_start-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 56px 0 30px 0;
+}
+
+.form-start {
+    display: grid;
+    grid-template-columns: minmax(260px, 396px);
+}

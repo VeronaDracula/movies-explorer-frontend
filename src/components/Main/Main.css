@@ -1,0 +1,42 @@
+.promo {
+    background-color: #073042;
+    box-sizing: border-box;
+}
+
+.project {
+    background-color: #202020;
+    box-sizing: border-box;
+}
+
+.technologies {
+    background-color: #272727;
+    box-sizing: border-box;
+    min-height: 625px;
+}
+
+.about {
+    background-color: #202020;
+    box-sizing: border-box;
+    min-height: 1079px;
+}
+
+@media screen and (max-width: 768px) {
+    .technologies {
+        min-height: 567px;
+    }
+
+    .about {
+        min-height: 994px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .technologies {
+        min-height: 651px;
+        background-color: #202020;
+    }
+
+    .about {
+        min-height: 1198px;
+    }
+}
