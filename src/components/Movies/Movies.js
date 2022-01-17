@@ -5,7 +5,7 @@ import SearchForm from '../SearchForm/SearchForm.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import MoreBtn from '../MoreBtn/MoreBtn.js';
 
-function Movies() {
+function Movies(props) {
 
     return (
         <main className="content">
@@ -14,7 +14,7 @@ function Movies() {
             </section>
 
             <section className="movies">
-                <MoviesCardList/>
+                <MoviesCardList cards={props.cards}/>
             </section>
 
             <section className="more-button page__content">

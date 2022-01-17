@@ -17,25 +17,34 @@ import movie10 from '../../images/movie-10.jpg';
 import movie11 from '../../images/movie-11.jpg';
 import movie12 from '../../images/movie-12.jpg';
 
-function MoviesCardList() {
+function MoviesCardList(props) {
 
     return (
         <div className="page__content">
             <ul className="cards">
                 <Switch>
                     <Route path="/movies">
-                        <MoviesCard img={movie1} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie2} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie3} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie4} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie5} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie6} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie7} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie8} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie9} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie10} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie11} typePageBtn="card__btn_type_add"/>
-                        <MoviesCard img={movie12} typePageBtn="card__btn_type_add"/>
+                        {props.cards.map((card) => (<MoviesCard card={card}
+                                                                nameRU={card.nameRU}
+                                                                duration={card.duration}
+                                                                image={card.image.url}
+                                                                trailerLink = {card.trailerLink}
+                                                                key={card._id}
+                                                                typePageBtn="card__btn_type_add"
+                                                          />))}
+
+                        {/*<MoviesCard img={movie1} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie2} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie3} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie4} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie5} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie6} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie7} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie8} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie9} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie10} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie11} typePageBtn="card__btn_type_add"/>*/}
+                        {/*<MoviesCard img={movie12} typePageBtn="card__btn_type_add"/>*/}
                     </Route>
 
                     <Route path="/saved-movies">

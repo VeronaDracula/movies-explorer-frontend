@@ -7,13 +7,13 @@ function MoviesCard(props) {
         <li className="card">
             <div className="card__info">
                 <div className="card__text">
-                    <h2 className="card__name">33 слова о дизайне</h2>
-                    <p className="card__time">1ч 47м</p>
+                    <h2 className="card__name">{props.nameRU}</h2>
+                    <p className="card__time">{props.duration}</p>
                 </div>
                 <button className={props.typePageBtn ? `card__btn ${props.typePageBtn} page__button` : "card__btn"}
                         type="button"></button>
             </div>
-            <img className="card__image" src={props.img} alt="название фильма"/>
+            <img className="card__image" src={`https://api.nomoreparties.co/${props.image}`} alt="название фильма"/>
         </li>
     );
 }
