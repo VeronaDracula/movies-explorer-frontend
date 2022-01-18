@@ -4,7 +4,6 @@ class MoviesApi {
         this.url = config.url;
     }
 
-
     _getResponseData(res) {
         if (!res.ok) {
             return Promise.reject(`Ошибка: ${res.status}`);

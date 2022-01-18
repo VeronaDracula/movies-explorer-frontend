@@ -8,7 +8,6 @@ class MainApi {
         }
     }
 
-
     _getResponseData(res) {
         if (!res.ok) {
             return Promise.reject(`Ошибка: ${res.status}`);
@@ -17,7 +16,7 @@ class MainApi {
     }
 
     getCards () {
-        return fetch(this.url + 'cards', {
+        return fetch(this.url + 'movies', {
             headers : {
                 'Content-Type': 'application/json',
                 // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
@@ -28,11 +27,11 @@ class MainApi {
 
     }
 
-    createCardApi (data) {
-        return fetch(this.url + 'cards', {
+    addCardApi (data) {
+        return fetch(this.url + 'movies', {
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+                // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
             method: 'POST',
             body: JSON.stringify(data)
@@ -43,10 +42,10 @@ class MainApi {
     }
 
     deleteCardApi (_id) {
-        return fetch(this.url + 'cards' + '/' + _id, {
+        return fetch(this.url + 'movies' + '/' + _id, {
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+                // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
             method: 'DELETE',
         }).then(response => {
@@ -58,7 +57,7 @@ class MainApi {
         return fetch(this.url + 'users/me', {
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+                // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
         }).then(response => {
             return this._getResponseData(response)
@@ -69,47 +68,10 @@ class MainApi {
         return fetch(this.url + 'users/me', {
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+                // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
             method: 'PATCH',
             body: JSON.stringify(data)
-        }).then(response => {
-            return this._getResponseData(response)
-        })
-    }
-
-    createNewUserAvatarApi (data) {
-        return fetch(this.url + 'users/me/avatar', {
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-            },
-            method: 'PATCH',
-            body: JSON.stringify(data)
-        }).then(response => {
-            return this._getResponseData(response)
-        })
-    }
-
-    likeApi (_id) {
-        return fetch(this.url + 'cards/' + _id + '/likes', {
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-            },
-            method: 'PUT'
-        }).then(response => {
-            return this._getResponseData(response)
-        })
-    }
-
-    deleteLikedApi (_id) {
-        return fetch(this.url + 'cards/' + _id + '/likes', {
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-            },
-            method: 'DELETE',
         }).then(response => {
             return this._getResponseData(response)
         })
@@ -118,7 +80,7 @@ class MainApi {
 
 
 const url = {
-    url: 'http://localhost:3000/'
+    url: 'https://api.graduationproject.nomoredomains.rocks/'
 }
 
-export const api = new Api(url);
+export const apiMain = new MainApi(url);

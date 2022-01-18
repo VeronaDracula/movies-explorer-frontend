@@ -4,7 +4,7 @@ import './SavedMovies.css';
 import SearchForm from '../SearchForm/SearchForm.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 
-function SavedMovies() {
+function SavedMovies(props) {
 
     return (
         <main className="content">
@@ -13,7 +13,7 @@ function SavedMovies() {
             </section>
 
             <section className="movies">
-                <MoviesCardList/>
+                <MoviesCardList cards={props.cards}/>
             </section>
         </main>
     );

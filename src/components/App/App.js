@@ -12,6 +12,7 @@ import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import Profile from '../Profile/Profile.js';
 import {apiMovies} from "../../utils/MoviesApi";
+import {apiMain} from "../../utils/MainApi";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 
     // const [selectedCard, setSelectedCard] = React.useState(emptyCard);
     const [cards, setCards] = React.useState([]);
+    const [ourCards, setOurCards] = React.useState([]);
 
     //открытие и закрытие попапов
     function handlePopupMenuClick() {
@@ -50,16 +52,46 @@ function App() {
 
 
 
-    //запрос данных карточки
-    React.useEffect(() => {
+    //запрос данных карточки из общей базы
+    function handleSearchMovies() {
+        preloaderState(true)
         apiMovies
             .getCards()
             .then(cardsData => {
+                localStorage.setItem('cards', cardsData);
                 setCards(cardsData)
             })
             .catch(err => console.log(err))
+            .finally(() => {
+                preloaderState(false)
+            });
+    }
 
+
+    //запрос данных карточки из нашей базы
+    React.useEffect(() => {
+        apiMain
+            .getCards()
+            .then(cardsData => {
+                setOurCards(cardsData)
+            })
+            .catch(err => console.log(err))
     }, []);
+
+    const [isPreloaderActive, setIsPreloaderActive] = React.useState(false);
+
+
+    //Процесс загрузки
+    function preloaderState(isLoading) {
+        if(isLoading) {
+            setIsPreloaderActive(true);
+        }
+
+        else{
+            setIsPreloaderActive(false);
+        }
+    }
+
 
   return (
     <div className="App">
@@ -76,13 +108,13 @@ function App() {
 
                 <Route path="/movies">
                     <Header onMenu={handlePopupMenuClick} isOpen={isPopupMenuOpen} onClose={closeAllPopups}/>
-                    <Movies cards={cards}/>
+                    <Movies cards={cards} onSearchMovies={handleSearchMovies} isActive={isPreloaderActive}/>
                     <Footer/>
                 </Route>
 
                 <Route path="/saved-movies">
                     <Header onMenu={handlePopupMenuClick} isOpen={isPopupMenuOpen} onClose={closeAllPopups}/>
-                    <SavedMovies/>
+                    <SavedMovies cards={ourCards}/>
                     <Footer/>
                 </Route>
 
