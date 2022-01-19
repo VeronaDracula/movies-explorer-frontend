@@ -1,10 +1,11 @@
 import React from 'react';
 import './MoreBtn.css';
 
-function MoreBtn() {
+function MoreBtn(props) {
 
     return (
-        <button className="more-btn page__button ">Ещё</button>
+        <button className={props.isActive ? "more-btn page__button" : "more-btn page__button more-btn_inactive"}
+                onClick={props.onLoad}>Ещё</button>
     );
 }
 

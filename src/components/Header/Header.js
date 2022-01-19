@@ -37,6 +37,7 @@ function Header(props) {
                         </div>
                     </div>
                 </Route>
+
             </Switch>
         </header>
     );

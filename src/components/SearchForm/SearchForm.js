@@ -9,7 +9,10 @@ function SearchForm(props) {
         <div className="search__container page__content">
             <form className="form-search" name="form-search">
                 <input className="form-search__input" type="text"  id="search" name="search" placeholder="Фильм" required/>
-                <button className="form-search__btn-search page__button" type="submit" onClick={props.onSearchMovies}>Найти</button>
+                <button className="form-search__btn-search page__button" type="submit"
+                        onClick={function (){props.onSearchMovies(); props.onClick()}}>
+                    Найти
+                </button>
             </form>
 
             <FilterCheckbox/>

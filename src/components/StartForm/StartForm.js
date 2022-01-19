@@ -7,7 +7,7 @@ function StartForm(props) {
         <div className="form-start__section">
             <label htmlFor={props.name} className="form-start__label">{props.placeholder}</label>
             <input type={props.type} className="form-start__input" id={props.name} name={props.name} placeholder={props.placeholder}
-                   required minLength={props.minLength} maxLength={props.maxLength}/>
+                   required minLength={props.minLength} maxLength={props.maxLength} value={props.value} onChange={props.onChange}/>
             <span className="form-start__input-error" id={`${props.name}-error`}>sdfg</span>
         </div>
     );

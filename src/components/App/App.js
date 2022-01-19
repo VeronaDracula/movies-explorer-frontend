@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch, useHistory} from 'react-router-dom';
 import './App.css';
 
-import Header from '../Header/Header.js';
-import Footer from '../Footer/Footer.js';
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+
 
 import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
@@ -13,15 +13,95 @@ import Login from '../Login/Login.js';
 import Profile from '../Profile/Profile.js';
 import {apiMovies} from "../../utils/MoviesApi";
 import {apiMain} from "../../utils/MainApi";
+import {apiAuth} from "../../utils/AuthApi";
 
 function App() {
 
     const [isPopupMenuOpen, setIsPopupMenuOpen] = React.useState(false);
     const [isPopupEditProfileOpen, setIsPopupEditProfileOpen] = React.useState(false);
+    const [isPreloaderActive, setIsPreloaderActive] = React.useState(false);
+    const [notFound, setNotFound] = React.useState(false);
 
     // const [selectedCard, setSelectedCard] = React.useState(emptyCard);
     const [cards, setCards] = React.useState([]);
     const [ourCards, setOurCards] = React.useState([]);
+
+
+    const [loggedIn, setLoggedIn] = React.useState(false);
+
+    const history = useHistory();
+
+    React.useEffect(() => {
+        tokenCheck();
+    }, [history, loggedIn]);
+
+    React.useEffect(() => {
+        if(loggedIn === true) {
+            history.push('/movies');
+        }
+
+    }, [loggedIn]);
+
+    //проверка токена
+    function tokenCheck() {
+        const jwt = localStorage.getItem('jwt');
+        if (jwt){
+            apiAuth
+                .getContent(jwt)
+                .then((data) => {
+                    if (data){
+                        setLoggedIn(true);
+                        history.push('/movies');
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
+    }
+
+    //регистрация
+    function handleRegister({name, email, password}) {
+        apiAuth
+            .register({name, email, password})
+            .then(response => {
+                console.log(response);
+                // handleInfoTooltipOpen();
+            })
+            .catch(err => {
+                console.log(err);
+                // handleInfoTooltipOpen();
+                // setInfoTooltipImg(imgLoginNo);
+                // setInfoTooltipText('Что-то пошло не так!\n' + 'Попробуйте ещё раз.');
+            })
+    }
+
+    //вход
+    function handleLogin({email, password}){
+        apiAuth
+            .authorization({email, password})
+            .then(data => {
+                if(data.token) {
+                    const token = data.token;
+                    localStorage.setItem('jwt', token);
+                    tokenCheck();
+                    setLoggedIn(true);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+
+    //выход
+    function signOut(){
+        localStorage.removeItem('jwt');
+        history.push('/signin');
+        setLoggedIn(false);
+    }
+
+
 
     //открытие и закрытие попапов
     function handlePopupMenuClick() {
@@ -51,37 +131,7 @@ function App() {
     }, [])
 
 
-
-    //запрос данных карточки из общей базы
-    function handleSearchMovies() {
-        preloaderState(true)
-        apiMovies
-            .getCards()
-            .then(cardsData => {
-                localStorage.setItem('cards', cardsData);
-                setCards(cardsData)
-            })
-            .catch(err => console.log(err))
-            .finally(() => {
-                preloaderState(false)
-            });
-    }
-
-
-    //запрос данных карточки из нашей базы
-    React.useEffect(() => {
-        apiMain
-            .getCards()
-            .then(cardsData => {
-                setOurCards(cardsData)
-            })
-            .catch(err => console.log(err))
-    }, []);
-
-    const [isPreloaderActive, setIsPreloaderActive] = React.useState(false);
-
-
-    //Процесс загрузки
+    //процесс загрузки данных карточек
     function preloaderState(isLoading) {
         if(isLoading) {
             setIsPreloaderActive(true);
@@ -92,6 +142,67 @@ function App() {
         }
     }
 
+    //надо ли выводить надпись "Ничего не найдено"
+    function foundActive (movies) {
+        if ( movies.length === 0 ) {
+            setNotFound(true);
+        }
+
+        else {
+            setNotFound(false);
+        }
+    }
+
+
+    //запрос данных карточки из общей базы
+    function handleSearchMovies() {
+        preloaderState(true)
+        apiMovies
+            .getCards()
+            .then(cardsData => {
+                localStorage.setItem('cards', JSON.stringify(cardsData));
+                setCards(JSON.parse(localStorage.getItem('cards')))
+            })
+            .catch(err => console.log(err))
+            .finally(() => {
+                preloaderState(false)
+                foundActive(JSON.parse(localStorage.getItem('cards')))
+            });
+    }
+
+
+    //новые карточки
+    function handleAddCards(newCards) {
+        // let cardsNew = Object.assign([], cards);
+        // newCards.map((newCard) =>
+        //     cardsNew.push(newCard)
+        // )
+        // setCards(cardsNew);
+    }
+
+
+
+    //запрос данных карточки из нашей базы
+    function handleSearchMoviesSaved() {
+        preloaderState(true)
+        apiMain
+            .getCards()
+            .then(cardsData => {
+                setOurCards(cardsData)
+            })
+            .catch(err => console.log(err))
+            .finally(() => {
+                preloaderState(false)
+            });
+    }
+
+
+
+
+
+
+
+
 
   return (
     <div className="App">
@@ -99,36 +210,97 @@ function App() {
 
             <Switch>
                 <Route path="/signin">
-                    <Login/>
+                    <Login onLogin={handleLogin}/>
                 </Route>
 
                 <Route path="/signup">
-                    <Register/>
+                    <Register onRegister={handleRegister}/>
                 </Route>
 
-                <Route path="/movies">
-                    <Header onMenu={handlePopupMenuClick} isOpen={isPopupMenuOpen} onClose={closeAllPopups}/>
-                    <Movies cards={cards} onSearchMovies={handleSearchMovies} isActive={isPreloaderActive}/>
-                    <Footer/>
-                </Route>
 
-                <Route path="/saved-movies">
-                    <Header onMenu={handlePopupMenuClick} isOpen={isPopupMenuOpen} onClose={closeAllPopups}/>
-                    <SavedMovies cards={ourCards}/>
-                    <Footer/>
-                </Route>
+                <ProtectedRoute
+                    path="/movies"
+                    loggedIn={loggedIn}
+                    component={Movies}
 
-                <Route path="/profile">
-                    <Header onMenu={handlePopupMenuClick} isOpen={isPopupMenuOpen} onClose={closeAllPopups}/>
-                    <Profile onEditProfile={handlePopupEditProfileClick} isOpen={isPopupEditProfileOpen} onClose={closeAllPopups}/>
-                </Route>
+                    cards={cards}
+                    onSearchMovies={handleSearchMovies}
+                    isActive={isPreloaderActive}
+                    onFound={foundActive}
+                    isActiveFound={notFound}
+                    onAddCards={handleAddCards}
+
+                    onMenu={handlePopupMenuClick}
+                    isOpen={isPopupMenuOpen}
+                    onClose={closeAllPopups}
+                />
+
+                <ProtectedRoute
+                    path="/saved-movies"
+                    loggedIn={loggedIn}
+                    component={SavedMovies}
+
+                    cards={ourCards}
+                    onSearchMovies={handleSearchMoviesSaved}
+
+                    onMenu={handlePopupMenuClick}
+                    isOpen={isPopupMenuOpen}
+                    onClose={closeAllPopups}
+                />
+
+                <ProtectedRoute
+                    path="/profile"
+                    loggedIn={loggedIn}
+                    component={Profile}
+
+                    onEditProfile={handlePopupEditProfileClick}
+                    isOpen={isPopupEditProfileOpen}
+                    onClose={closeAllPopups}
+                    onSignOut={signOut}
+
+                    onMenu={handlePopupMenuClick}
+                    isOpenMenu={isPopupMenuOpen}
+                />
+
+                {/*<Route path="/movies">*/}
+                {/*    <Movies cards={cards}*/}
+                {/*            onSearchMovies={handleSearchMovies}*/}
+                {/*            isActive={isPreloaderActive}*/}
+                {/*            onFound={foundActive}*/}
+                {/*            isActiveFound={notFound}*/}
+                {/*            onAddCards={handleAddCards}*/}
+
+                {/*            onMenu={handlePopupMenuClick}*/}
+                {/*            isOpen={isPopupMenuOpen}*/}
+                {/*            onClose={closeAllPopups}*/}
+                {/*    />*/}
+                {/*</Route>*/}
+
+                {/*<Route path="/saved-movies">*/}
+                {/*    <SavedMovies cards={ourCards}*/}
+                {/*                 onSearchMovies={handleSearchMoviesSaved}*/}
+
+                {/*                 onMenu={handlePopupMenuClick}*/}
+                {/*                 isOpen={isPopupMenuOpen}*/}
+                {/*                 onClose={closeAllPopups}*/}
+                {/*    />*/}
+                {/*</Route>*/}
+
+                {/*<Route path="/profile">*/}
+                {/*    <Profile onEditProfile={handlePopupEditProfileClick}*/}
+                {/*             isOpen={isPopupEditProfileOpen}*/}
+                {/*             onClose={closeAllPopups}*/}
+
+                {/*             onMenu={handlePopupMenuClick}*/}
+                {/*             isOpenMenu={isPopupMenuOpen}*/}
+                {/*    />*/}
+                {/*</Route>*/}
 
                 <Route path="/" >
-                    <Header/>
-                    <Main/>
-                    <Footer/>
+                    <Main />
                 </Route>
             </Switch>
+
         </div>
     </div>
   );

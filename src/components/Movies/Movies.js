@@ -3,26 +3,39 @@ import './Movies.css';
 
 import SearchForm from '../SearchForm/SearchForm.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
-import MoreBtn from '../MoreBtn/MoreBtn.js';
 import Preloader from '../Preloader/Preloader.js';
+import MoviesNotFound from "../MoviesNotFound/MoviesNotFound";
+import Header from "../Header/Header";
+import Footer from '../Footer/Footer.js';
 
 function Movies(props) {
+    const [click, setClick] = React.useState(false);
+
+    function click1() {
+        setClick(true)
+        // console.log(click)
+        return click
+    }
+
 
     return (
-        <main className="content">
-            <section className="search">
-                <SearchForm onSearchMovies={props.onSearchMovies}/>
-            </section>
+        <>
+            <Header onMenu={props.onMenu} isOpen={props.isOpen} onClose={props.onClose}/>
 
-            <section className="movies">
-                <Preloader isActive={props.isActive}/>
-                <MoviesCardList cards={props.cards}/>
-            </section>
+            <main className="content">
+                <section className="search">
+                    <SearchForm onSearchMovies={props.onSearchMovies} onClick={click1}/>
+                </section>
 
-            <section className="more-button page__content">
-                <MoreBtn/>
-            </section>
-        </main>
+                <section className="movies">
+                    <MoviesNotFound isActiveFound={props.isActiveFound}/>
+                    <Preloader isActive={props.isActive}/>
+                    <MoviesCardList cards={props.cards} onAddCards={props.onAddCards} isClick={click}/>
+                </section>
+            </main>
+
+            <Footer/>
+        </>
     );
 }
 
