@@ -217,7 +217,6 @@ function App() {
                     <Register onRegister={handleRegister}/>
                 </Route>
 
-
                 <ProtectedRoute
                     path="/movies"
                     loggedIn={loggedIn}
@@ -261,40 +260,6 @@ function App() {
                     onMenu={handlePopupMenuClick}
                     isOpenMenu={isPopupMenuOpen}
                 />
-
-                {/*<Route path="/movies">*/}
-                {/*    <Movies cards={cards}*/}
-                {/*            onSearchMovies={handleSearchMovies}*/}
-                {/*            isActive={isPreloaderActive}*/}
-                {/*            onFound={foundActive}*/}
-                {/*            isActiveFound={notFound}*/}
-                {/*            onAddCards={handleAddCards}*/}
-
-                {/*            onMenu={handlePopupMenuClick}*/}
-                {/*            isOpen={isPopupMenuOpen}*/}
-                {/*            onClose={closeAllPopups}*/}
-                {/*    />*/}
-                {/*</Route>*/}
-
-                {/*<Route path="/saved-movies">*/}
-                {/*    <SavedMovies cards={ourCards}*/}
-                {/*                 onSearchMovies={handleSearchMoviesSaved}*/}
-
-                {/*                 onMenu={handlePopupMenuClick}*/}
-                {/*                 isOpen={isPopupMenuOpen}*/}
-                {/*                 onClose={closeAllPopups}*/}
-                {/*    />*/}
-                {/*</Route>*/}
-
-                {/*<Route path="/profile">*/}
-                {/*    <Profile onEditProfile={handlePopupEditProfileClick}*/}
-                {/*             isOpen={isPopupEditProfileOpen}*/}
-                {/*             onClose={closeAllPopups}*/}
-
-                {/*             onMenu={handlePopupMenuClick}*/}
-                {/*             isOpenMenu={isPopupMenuOpen}*/}
-                {/*    />*/}
-                {/*</Route>*/}
 
                 <Route path="/" >
                     <Main />
