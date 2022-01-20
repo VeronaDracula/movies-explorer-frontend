@@ -38,7 +38,6 @@ function Profile(props) {
                 <PopupEditProfile isOpen={props.isOpen} onClose={props.onClose} onUpdateUser={props.onUpdateUser}/>
             </main>
         </>
-
     );
 }
 
