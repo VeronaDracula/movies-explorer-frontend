@@ -9,20 +9,17 @@ function MoviesCardList(props) {
 
     const [moreButton, setMoreButton] = React.useState(props.cards);
 
-
-
-
     // const [newCards, setNewCards] = React.useState([]);
 
 
-    React.useEffect(() => {
-
-        // setNewCards(JSON.parse(localStorage.getItem('cards')))
-        // console.log(props.isClick)
-        // console.log('sdfgh')
-        // console.log(newCards)
-
-    }, [props.isClick]);
+    // React.useEffect(() => {
+    //
+    //     // setNewCards(JSON.parse(localStorage.getItem('cards')))
+    //     // console.log(props.isClick)
+    //     // console.log('sdfgh')
+    //     // console.log(newCards)
+    //
+    // }, [props.isClick]);
 
 
     function getCardsAmount() {
@@ -51,11 +48,6 @@ function MoviesCardList(props) {
     }
 
 
-
-
-
-
-
     function loadMoreCards() {
         // // let newCards = cards.slice(0, 2)
         // //
@@ -69,7 +61,6 @@ function MoviesCardList(props) {
 
         // console.log(newCards)
 
-
     }
 
     return (
@@ -80,21 +71,36 @@ function MoviesCardList(props) {
                         {props.cards.map((card) => (<MoviesCard card={card}
                                                                 nameRU={card.nameRU}
                                                                 duration={card.duration}
-                                                                image={card.image.url}
+                                                                image={`https://api.nomoreparties.co/${card.image.url}`}
                                                                 trailer={card.trailerLink}
                                                                 key={card.id}
+                                                                onAddCard={props.onAddCard}
                                                                 typePageBtn="card__btn_type_add"
+                                                                ourCards={props.ourCards}
+
+                                                                country={card.country}
+                                                                director={card.director}
+                                                                year={card.year}
+                                                                description={card.description}
+                                                                thumbnail={card.image.formats.thumbnail.url}
+                                                                movieId={card.id}
+                                                                nameEN={card.nameEN}
+
                         />))}
                     </Route>
 
                     <Route path="/saved-movies">
-                        {props.cards.map((card) => (<MoviesCard card={card}
-                                                                nameRU={card.nameRU}
-                                                                duration={card.duration}
-                                                                image={card.image.url}
-                                                                trailer={card.trailerLink}
-                                                                key={card._id}
-                                                                typePageBtn="card__btn_type_close"
+                        {props.ourCards.map((ourCard) => (<MoviesCard card={ourCard}
+                                                                      nameRU={ourCard.nameRU}
+                                                                      duration={ourCard.duration}
+                                                                      image={ourCard.image}
+                                                                      trailer={ourCard.trailerLink}
+                                                                      key={ourCard._id}
+                                                                      onDeleteCard={props.onDeleteCard}
+                                                                      typePageBtn="card__btn_type_close"
+
+
+                                                                      // ourCards={props.ourCards}
                         />))}
                     </Route>
                 </Switch>

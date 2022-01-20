@@ -30,7 +30,7 @@ function Movies(props) {
                 <section className="movies">
                     <MoviesNotFound isActiveFound={props.isActiveFound}/>
                     <Preloader isActive={props.isActive}/>
-                    <MoviesCardList cards={props.cards} onAddCards={props.onAddCards} isClick={click}/>
+                    <MoviesCardList cards={props.cards} ourCards={props.ourCards} onAddCard={props.onAddCard} isClick={click}/>
                 </section>
             </main>
 

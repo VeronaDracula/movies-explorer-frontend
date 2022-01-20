@@ -20,6 +20,7 @@ function App() {
     const [isPopupMenuOpen, setIsPopupMenuOpen] = React.useState(false);
     const [isPopupEditProfileOpen, setIsPopupEditProfileOpen] = React.useState(false);
     const [isPreloaderActive, setIsPreloaderActive] = React.useState(false);
+
     const [notFound, setNotFound] = React.useState(false);
 
     // const [selectedCard, setSelectedCard] = React.useState(emptyCard);
@@ -28,10 +29,10 @@ function App() {
 
     const [currentUser, setCurrentUser] = React.useState({});
 
-
     const [loggedIn, setLoggedIn] = React.useState(false);
 
     const history = useHistory();
+
 
     React.useEffect(() => {
         tokenCheck();
@@ -189,12 +190,39 @@ function App() {
             .getCards()
             .then(cardsData => {
                 setOurCards(cardsData)
+                console.log(cardsData)
             })
             .catch(err => console.log(err))
             .finally(() => {
                 preloaderState(false)
             });
     }
+
+    //добавление новой карточки в нашу базу
+    function handleAddMoviesSubmit(card) {
+        // const isAdded = ourCards.some(ourCard => (ourCard.movieId === card.id) && (ourCard.id ===  currentUser._id));
+        //
+        // if (!isAdded) {
+            apiMain
+                .addCardApi(card)
+                .then(newCard => {
+                    setOurCards([newCard, ...ourCards]);
+                })
+                .catch(err => console.log(err))
+
+        // }
+    }
+
+    //обработчик удаления карточки из нашей базы
+    function handleDeleteCardSubmit(cardDataDelete) {
+        apiMain
+            .deleteCardApi(cardDataDelete._id)
+            .then(() => {
+                setCards((state) => state.filter(cardData => cardDataDelete._id !== cardData._id))
+            })
+            .catch(err => console.log(err))
+    }
+
 
     //получение данных пользователя
     React.useEffect(() => {
@@ -256,11 +284,14 @@ function App() {
                         isActive={isPreloaderActive}
                         onFound={foundActive}
                         isActiveFound={notFound}
-                        onAddCards={handleAddCards}
+                        // onAddCards={handleAddCards}
+                        onAddCard={handleAddMoviesSubmit}
 
                         onMenu={handlePopupMenuClick}
                         isOpen={isPopupMenuOpen}
                         onClose={closeAllPopups}
+
+                        ourCards={ourCards}
                     />
 
                     <ProtectedRoute
@@ -268,12 +299,16 @@ function App() {
                         loggedIn={loggedIn}
                         component={SavedMovies}
 
-                        cards={ourCards}
+                        ourCards={ourCards}
                         onSearchMovies={handleSearchMoviesSaved}
+                        onDeleteCard={handleDeleteCardSubmit}
+
 
                         onMenu={handlePopupMenuClick}
                         isOpen={isPopupMenuOpen}
                         onClose={closeAllPopups}
+
+                        cards={cards}
                     />
 
                     <ProtectedRoute

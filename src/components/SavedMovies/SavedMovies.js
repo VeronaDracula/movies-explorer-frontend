@@ -18,7 +18,7 @@ function SavedMovies(props) {
                 </section>
 
                 <section className="movies">
-                    <MoviesCardList cards={props.cards}/>
+                    <MoviesCardList ourCards={props.ourCards} cards={props.cards} onDeleteCard={props.onDeleteCard}/>
                 </section>
             </main>
 
