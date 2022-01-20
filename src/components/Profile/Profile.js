@@ -2,10 +2,15 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import './Profile.css';
 
+import {CurrentUserContext} from "../../context/CurrentUserContext";
+
 import PopupEditProfile from '../PopupEditProfile/PopupEditProfile.js';
 import Header from "../Header/Header";
 
+
 function Profile(props) {
+
+    const currentUser = React.useContext(CurrentUserContext);
 
     return (
         <>
@@ -13,15 +18,15 @@ function Profile(props) {
 
             <main className="content">
                 <section className="profile page__content">
-                    <h2 className="profile__title">Привет, Виталий!</h2>
+                    <h2 className="profile__title">Привет, {currentUser.name}!</h2>
                     <div className="profile__data">
                         <div className="profile__data-item">
                             <p className="profile__data-text profile__data-text_type_title">Имя</p>
-                            <p className="profile__data-text">Виталий</p>
+                            <p className="profile__data-text">{currentUser.name}</p>
                         </div>
                         <div className="profile__data-item">
                             <p className="profile__data-text profile__data-text_type_title">E-mail</p>
-                            <p className="profile__data-text">pochta@yandex.ru</p>
+                            <p className="profile__data-text">{currentUser.email}</p>
                         </div>
                     </div>
                     <div className="profile__actions">
@@ -30,7 +35,7 @@ function Profile(props) {
                     </div>
                 </section>
 
-                <PopupEditProfile isOpen={props.isOpen} onClose={props.onClose}/>
+                <PopupEditProfile isOpen={props.isOpen} onClose={props.onClose} onUpdateUser={props.onUpdateUser}/>
             </main>
         </>
 

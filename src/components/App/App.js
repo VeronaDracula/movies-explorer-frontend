@@ -3,7 +3,7 @@ import { Route, Switch, useHistory} from 'react-router-dom';
 import './App.css';
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-
+import { CurrentUserContext } from "../../context/CurrentUserContext.js";
 
 import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
@@ -26,6 +26,8 @@ function App() {
     const [cards, setCards] = React.useState([]);
     const [ourCards, setOurCards] = React.useState([]);
 
+    const [currentUser, setCurrentUser] = React.useState({});
+
 
     const [loggedIn, setLoggedIn] = React.useState(false);
 
@@ -39,8 +41,7 @@ function App() {
         if(loggedIn === true) {
             history.push('/movies');
         }
-
-    }, [loggedIn]);
+    }, [loggedIn, history]);
 
     //проверка токена
     function tokenCheck() {
@@ -65,7 +66,6 @@ function App() {
         apiAuth
             .register({name, email, password})
             .then(response => {
-                console.log(response);
                 // handleInfoTooltipOpen();
             })
             .catch(err => {
@@ -196,6 +196,34 @@ function App() {
             });
     }
 
+    //получение данных пользователя
+    React.useEffect(() => {
+        if(loggedIn === true) {
+            apiMain
+                .getUserInfoApi()
+                .then(userData => {
+                    setCurrentUser(userData)
+                })
+                .catch(err => console.log(err))
+        }
+
+    }, [loggedIn]);
+
+    //обновление данных пользователя
+    function handleUpdateUser(newUserData) {
+        // buttonState(buttonText, true);
+        apiMain
+            .createNewUserInfoApi(newUserData)
+            .then(newUserData => {
+                setCurrentUser(newUserData);
+                closeAllPopups();
+            })
+            .catch(err => console.log(err))
+            .finally(() => {
+                // buttonState(buttonText, false)
+            });
+    }
+
 
 
 
@@ -206,67 +234,71 @@ function App() {
 
   return (
     <div className="App">
-        <div className="page">
+        <CurrentUserContext.Provider value={currentUser}>
+            <div className="page">
 
-            <Switch>
-                <Route path="/signin">
-                    <Login onLogin={handleLogin}/>
-                </Route>
+                <Switch>
+                    <Route path="/signin">
+                        <Login onLogin={handleLogin}/>
+                    </Route>
 
-                <Route path="/signup">
-                    <Register onRegister={handleRegister}/>
-                </Route>
+                    <Route path="/signup">
+                        <Register onRegister={handleRegister}/>
+                    </Route>
 
-                <ProtectedRoute
-                    path="/movies"
-                    loggedIn={loggedIn}
-                    component={Movies}
+                    <ProtectedRoute
+                        path="/movies"
+                        loggedIn={loggedIn}
+                        component={Movies}
 
-                    cards={cards}
-                    onSearchMovies={handleSearchMovies}
-                    isActive={isPreloaderActive}
-                    onFound={foundActive}
-                    isActiveFound={notFound}
-                    onAddCards={handleAddCards}
+                        cards={cards}
+                        onSearchMovies={handleSearchMovies}
+                        isActive={isPreloaderActive}
+                        onFound={foundActive}
+                        isActiveFound={notFound}
+                        onAddCards={handleAddCards}
 
-                    onMenu={handlePopupMenuClick}
-                    isOpen={isPopupMenuOpen}
-                    onClose={closeAllPopups}
-                />
+                        onMenu={handlePopupMenuClick}
+                        isOpen={isPopupMenuOpen}
+                        onClose={closeAllPopups}
+                    />
 
-                <ProtectedRoute
-                    path="/saved-movies"
-                    loggedIn={loggedIn}
-                    component={SavedMovies}
+                    <ProtectedRoute
+                        path="/saved-movies"
+                        loggedIn={loggedIn}
+                        component={SavedMovies}
 
-                    cards={ourCards}
-                    onSearchMovies={handleSearchMoviesSaved}
+                        cards={ourCards}
+                        onSearchMovies={handleSearchMoviesSaved}
 
-                    onMenu={handlePopupMenuClick}
-                    isOpen={isPopupMenuOpen}
-                    onClose={closeAllPopups}
-                />
+                        onMenu={handlePopupMenuClick}
+                        isOpen={isPopupMenuOpen}
+                        onClose={closeAllPopups}
+                    />
 
-                <ProtectedRoute
-                    path="/profile"
-                    loggedIn={loggedIn}
-                    component={Profile}
+                    <ProtectedRoute
+                        path="/profile"
+                        loggedIn={loggedIn}
+                        component={Profile}
 
-                    onEditProfile={handlePopupEditProfileClick}
-                    isOpen={isPopupEditProfileOpen}
-                    onClose={closeAllPopups}
-                    onSignOut={signOut}
+                        onEditProfile={handlePopupEditProfileClick}
+                        isOpen={isPopupEditProfileOpen}
+                        onClose={closeAllPopups}
+                        onSignOut={signOut}
 
-                    onMenu={handlePopupMenuClick}
-                    isOpenMenu={isPopupMenuOpen}
-                />
+                        onMenu={handlePopupMenuClick}
+                        isOpenMenu={isPopupMenuOpen}
+                        onUpdateUser={handleUpdateUser}
+                    />
 
-                <Route path="/" >
-                    <Main />
-                </Route>
-            </Switch>
+                    <Route path="/" >
+                        <Main />
+                    </Route>
+                </Switch>
 
-        </div>
+            </div>
+
+        </CurrentUserContext.Provider>
     </div>
   );
 }

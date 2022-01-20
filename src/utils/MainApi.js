@@ -19,7 +19,7 @@ class MainApi {
         return fetch(this.url + 'movies', {
             headers : {
                 'Content-Type': 'application/json',
-                // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
         }).then(response => {
             return this._getResponseData(response)
@@ -31,7 +31,7 @@ class MainApi {
         return fetch(this.url + 'movies', {
             headers : {
                 'Content-Type': 'application/json',
-                // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
             method: 'POST',
             body: JSON.stringify(data)
@@ -45,7 +45,7 @@ class MainApi {
         return fetch(this.url + 'movies' + '/' + _id, {
             headers : {
                 'Content-Type': 'application/json',
-                // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
             method: 'DELETE',
         }).then(response => {
@@ -57,7 +57,7 @@ class MainApi {
         return fetch(this.url + 'users/me', {
             headers : {
                 'Content-Type': 'application/json',
-                // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
         }).then(response => {
             return this._getResponseData(response)
@@ -68,7 +68,7 @@ class MainApi {
         return fetch(this.url + 'users/me', {
             headers : {
                 'Content-Type': 'application/json',
-                // 'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
             method: 'PATCH',
             body: JSON.stringify(data)

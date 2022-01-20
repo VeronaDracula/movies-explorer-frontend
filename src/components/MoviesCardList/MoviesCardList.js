@@ -88,14 +88,14 @@ function MoviesCardList(props) {
                     </Route>
 
                     <Route path="/saved-movies">
-                        {/*{props.cards.map((card) => (<MoviesCard card={card}*/}
-                        {/*                                        nameRU={card.nameRU}*/}
-                        {/*                                        duration={card.duration}*/}
-                        {/*                                        image={card.image.url}*/}
-                        {/*                                        trailer={card.trailerLink}*/}
-                        {/*                                        key={card._id}*/}
-                        {/*                                        typePageBtn="card__btn_type_close"*/}
-                        {/*/>))}*/}
+                        {props.cards.map((card) => (<MoviesCard card={card}
+                                                                nameRU={card.nameRU}
+                                                                duration={card.duration}
+                                                                image={card.image.url}
+                                                                trailer={card.trailerLink}
+                                                                key={card._id}
+                                                                typePageBtn="card__btn_type_close"
+                        />))}
                     </Route>
                 </Switch>
             </ul>
