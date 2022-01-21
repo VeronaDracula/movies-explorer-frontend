@@ -33,12 +33,23 @@ function MoviesCard(props) {
         props.onDeleteCard(props.card)
     }
 
+    function countDuration(value) {
+        let duration = value;
+        let hours = 0;
+        while(duration >= 60) {
+            duration = duration - 60;
+            hours ++;
+        }
+        const minutes = duration;
+        return `${hours}ч ${minutes}м`
+    }
+
     return (
         <li className="card">
             <div className="card__info">
                 <div className="card__text">
                     <h2 className="card__name">{props.nameRU}</h2>
-                    <p className="card__time">{props.duration}</p>
+                    <p className="card__time">{countDuration(props.duration)}</p>
                 </div>
                 <Switch>
                     <Route path="/movies">
@@ -52,7 +63,9 @@ function MoviesCard(props) {
                     </Route>
                 </Switch>
             </div>
-            <img className="card__image" src={props.image} alt={props.nameRU}/>
+            <a href={props.trailer} className="page__link" target="_blank" rel="noreferrer">
+                <img className="card__image" src={props.image} alt={props.nameRU}/>
+            </a>
         </li>
     );
 }

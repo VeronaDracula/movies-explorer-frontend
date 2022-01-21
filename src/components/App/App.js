@@ -189,8 +189,8 @@ function App() {
         apiMain
             .getCards()
             .then(cardsData => {
-                setOurCards(cardsData)
-                console.log(cardsData)
+                localStorage.setItem('ourCards', JSON.stringify(cardsData));
+                setOurCards(JSON.parse(localStorage.getItem('ourCards')))
             })
             .catch(err => console.log(err))
             .finally(() => {
@@ -301,6 +301,9 @@ function App() {
 
                         ourCards={ourCards}
                         onSearchMovies={handleSearchMoviesSaved}
+                        isActive={isPreloaderActive}
+                        onFound={foundActive}
+                        isActiveFound={notFound}
                         onDeleteCard={handleDeleteCardSubmit}
 
 

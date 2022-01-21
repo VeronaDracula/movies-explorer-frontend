@@ -65,9 +65,9 @@ function MoviesCardList(props) {
 
     return (
         <div className="page__content">
-            <ul className="cards">
-                <Switch>
-                    <Route path="/movies">
+            <Switch>
+                <Route path="/movies">
+                    <ul className="cards">
                         {props.cards.map((card) => (<MoviesCard card={card}
                                                                 nameRU={card.nameRU}
                                                                 duration={card.duration}
@@ -87,25 +87,26 @@ function MoviesCardList(props) {
                                                                 nameEN={card.nameEN}
 
                         />))}
-                    </Route>
+                    </ul>
 
-                    <Route path="/saved-movies">
+                    <MoreBtn onLoad={loadMoreCards} isActive={moreButton}/>
+                </Route>
+
+                <Route path="/saved-movies">
+                    <ul className="cards">
                         {props.ourCards.map((ourCard) => (<MoviesCard card={ourCard}
                                                                       nameRU={ourCard.nameRU}
                                                                       duration={ourCard.duration}
                                                                       image={ourCard.image}
-                                                                      trailer={ourCard.trailerLink}
+                                                                      trailer={ourCard.trailer}
                                                                       key={ourCard._id}
                                                                       onDeleteCard={props.onDeleteCard}
                                                                       typePageBtn="card__btn_type_close"
-
-
-                                                                      // ourCards={props.ourCards}
+                            // ourCards={props.ourCards}
                         />))}
-                    </Route>
-                </Switch>
-            </ul>
-            <MoreBtn onLoad={loadMoreCards} isActive={moreButton}/>
+                    </ul>
+                </Route>
+            </Switch>
         </div>
     );
 }

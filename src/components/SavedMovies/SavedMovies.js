@@ -5,6 +5,8 @@ import SearchForm from '../SearchForm/SearchForm.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import Header from "../Header/Header";
 import Footer from '../Footer/Footer.js';
+import MoviesNotFound from "../MoviesNotFound/MoviesNotFound";
+import Preloader from "../Preloader/Preloader";
 
 function SavedMovies(props) {
 
@@ -18,6 +20,8 @@ function SavedMovies(props) {
                 </section>
 
                 <section className="movies">
+                    <MoviesNotFound isActiveFound={props.isActiveFound}/>
+                    <Preloader isActive={props.isActive}/>
                     <MoviesCardList ourCards={props.ourCards} cards={props.cards} onDeleteCard={props.onDeleteCard}/>
                 </section>
             </main>
