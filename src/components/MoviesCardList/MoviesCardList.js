@@ -102,7 +102,7 @@ function MoviesCardList(props) {
                                                                       key={ourCard._id}
                                                                       onDeleteCard={props.onDeleteCard}
                                                                       typePageBtn="card__btn_type_close"
-                            // ourCards={props.ourCards}
+                            ourCards={props.ourCards}
                         />))}
                     </ul>
                 </Route>

@@ -8,10 +8,10 @@ function MoviesCard(props) {
 
     const currentUser = React.useContext(CurrentUserContext);
 
-    // const isAdded = props.ourCards.some(ourCard => (ourCard.movieId === props.card.id) && (ourCard._id ===  currentUser._id));
-    // const cardAddButtonClassName = (
-    //     `${isAdded ? `card__btn ${props.typePageBtn} card__btn_active page__button` : `card__btn ${props.typePageBtn} page__button`}`
-    // );
+    const isAdded = props.ourCards.some(ourCard => (ourCard.movieId === props.movieId) && (ourCard.owner ===  currentUser._id));
+    const cardAddButtonClassName = (
+        `${isAdded ? `card__btn ${props.typePageBtn} card__btn_active page__button` : `card__btn ${props.typePageBtn} page__button`}`
+    );
 
     function handleAddCardClick() {
         props.onAddCard({
@@ -53,7 +53,7 @@ function MoviesCard(props) {
                 </div>
                 <Switch>
                     <Route path="/movies">
-                        <button className={`card__btn ${props.typePageBtn} page__button`} type="button"
+                        <button className={cardAddButtonClassName} type="button"
                                 onClick={handleAddCardClick}></button>
                     </Route>
 
