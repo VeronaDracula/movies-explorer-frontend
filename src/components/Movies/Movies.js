@@ -8,15 +8,37 @@ import MoviesNotFound from "../MoviesNotFound/MoviesNotFound";
 import Header from "../Header/Header";
 import Footer from '../Footer/Footer.js';
 
+import {searchCards} from "../../utils/Search";
+
 function Movies(props) {
-    const [click, setClick] = React.useState(false);
+    // const [click, setClick] = React.useState(false);
+
+    const [keyword, setKeyword] = React.useState('');
+    const [cards, setCards] = React.useState([]);
+
+    // function handleThemeChange(e) {
+    //     setKeyword(e.target.value);
+    //     console
+    // }
+
+
 
     function click1() {
-        setClick(true)
+
+        // setClick(true)
+        setCards(searchCards(JSON.parse(localStorage.getItem('cards')), keyword))
         // console.log(click)
-        return click
+        // readKeyword()
+        console.log(searchCards(JSON.parse(localStorage.getItem('cards')), keyword))
+        return searchCards(JSON.parse(localStorage.getItem('cards')), keyword)
     }
 
+    function readKeyword(keyword2) {
+        setKeyword(keyword2)
+        // console.log(keyword2)
+        // console.log(keyword)
+        // return keyword2
+    }
 
     return (
         <>
@@ -24,13 +46,13 @@ function Movies(props) {
 
             <main className="content">
                 <section className="search">
-                    <SearchForm onSearchMovies={props.onSearchMovies} onClick={click1}/>
+                    <SearchForm onSearchMovies={props.onSearchMovies} onClick={click1} onSearchMoviesFilter={readKeyword}/>
                 </section>
 
                 <section className="movies">
                     <MoviesNotFound isActiveFound={props.isActiveFound}/>
                     <Preloader isActive={props.isActive}/>
-                    <MoviesCardList cards={props.cards} ourCards={props.ourCards} onAddCard={props.onAddCard} isClick={click}/>
+                    <MoviesCardList cards={cards} ourCards={props.ourCards} onAddCard={props.onAddCard}/>
                 </section>
             </main>
 

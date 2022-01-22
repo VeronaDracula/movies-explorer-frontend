@@ -186,22 +186,7 @@ function App() {
     }
 
 
-
-    //запрос данных карточки из нашей базы
-    // function handleSearchMoviesSaved() {
-    //     preloaderState(true)
-    //     apiMain
-    //         .getCards()
-    //         .then(cardsData => {
-    //             localStorage.setItem('ourCards', JSON.stringify(cardsData));
-    //             setOurCards(JSON.parse(localStorage.getItem('ourCards')))
-    //         })
-    //         .catch(err => console.log(err))
-    //         .finally(() => {
-    //             preloaderState(false)
-    //         });
-    // }
-
+    // получение карточек из нашей бзаы
     React.useEffect(() => {
         if(loggedIn === true) {
             preloaderState(true)
@@ -218,7 +203,7 @@ function App() {
         }
     }, [loggedIn]);
 
-    //добавление новой карточки в нашу базу
+    //добавление и удаление новой карточки в нашу базу
     function handleAddMoviesSubmit(card) {
         const isAdded = ourCards.some(ourCard => (ourCard.movieId === card.movieId) && (ourCard.owner ===  currentUser._id));
 
@@ -230,9 +215,8 @@ function App() {
                     localStorage.setItem('ourCards', JSON.stringify(ourCards));
                 })
                 .catch(err => console.log(err))
-
         }
-
+        // удалление со страницы movies
         else {
             ourCards.forEach(ourCard => {
                 if (ourCard.movieId === card.movieId) {
@@ -248,6 +232,7 @@ function App() {
             .deleteCardApi(cardDataDelete._id)
             .then(() => {
                 setOurCards((state) => state.filter(cardData => cardDataDelete._id !== cardData._id))
+                localStorage.setItem('ourCards', JSON.stringify(ourCards));
             })
             .catch(err => console.log(err))
     }

@@ -9,7 +9,7 @@ function MoviesCardList(props) {
 
     const [moreButton, setMoreButton] = React.useState(props.cards);
 
-    // const [newCards, setNewCards] = React.useState([]);
+    const [newCards, setNewCards] = React.useState([]);
 
 
     // React.useEffect(() => {
@@ -18,8 +18,19 @@ function MoviesCardList(props) {
     //     // console.log(props.isClick)
     //     // console.log('sdfgh')
     //     // console.log(newCards)
+    //     setNewCards(props.cards())
+    //
     //
     // }, [props.isClick]);
+
+    // function fgh () {
+    //     if (props.isClick) {
+    //         setNewCards(loadCards(getCardsAmount()))
+    //         console.log(newCards)
+    //     }
+    // }
+
+
 
 
     function getCardsAmount() {
