@@ -7,12 +7,37 @@ import Header from "../Header/Header";
 import Footer from '../Footer/Footer.js';
 import MoviesNotFound from "../MoviesNotFound/MoviesNotFound";
 import Preloader from "../Preloader/Preloader";
-
+import {searchCards, searchCardsDuration} from "../../utils/Search";
 
 
 function SavedMovies(props) {
 
+    const [keyword, setKeyword] = React.useState('');
+    const [ourCards, setOurCards] = React.useState(props.ourCards);
+    const [filterDuration, setFilterDuration] = React.useState(false);
 
+    function getSearchCardsList() {
+        setOurCards(searchCards(props.ourCards, keyword))
+    }
+
+    function readKeyword(keyword2) {
+        setKeyword(keyword2)
+    }
+
+    React.useEffect(() => {
+        setOurCards(props.ourCards)
+    }, [props.onDeleteCard]);
+
+    function getSearchCardsListDuration() {
+        if (filterDuration) {
+            setFilterDuration(false)
+            getSearchCardsList()
+        }
+        else {
+            setFilterDuration(true)
+            setOurCards(searchCardsDuration(props.ourCards))
+        }
+    }
 
     return (
         <>
@@ -20,13 +45,17 @@ function SavedMovies(props) {
 
             <main className="content">
                 <section className="search">
-                    <SearchForm onSearchMovies={props.onSearchMovies}/>
+                    <SearchForm
+                                onSearchCardsList={getSearchCardsList}
+                                onSearchMoviesFilter={readKeyword}
+                                onGetSearchCardsListDuration={getSearchCardsListDuration}
+                    />
                 </section>
 
                 <section className="movies">
                     <MoviesNotFound isActiveFound={props.isActiveFound}/>
                     <Preloader isActive={props.isActive}/>
-                    <MoviesCardList ourCards={props.ourCards}  onDeleteCard={props.onDeleteCard}/>
+                    <MoviesCardList ourCards={ourCards} onDeleteCard={props.onDeleteCard} cards={props.cards}/>
                 </section>
             </main>
 

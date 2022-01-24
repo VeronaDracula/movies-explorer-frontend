@@ -19,10 +19,11 @@ function SearchForm(props) {
             <form className="form-search" name="form-search" onSubmit={handleSubmit}>
                 <input className="form-search__input" type="text"  id="search" name="search" placeholder="Фильм" required
                        onChange={handleChangeKeyword}/>
+
                 <Switch>
                     <Route path="/movies">
                         <button className="form-search__btn-search page__button" type="submit"
-                                onClick={function (){props.onSearchMovies(); props.onClick()}}>
+                                onClick={function (){props.onSearchMovies()}}>
                             Найти
                         </button>
 
@@ -30,14 +31,14 @@ function SearchForm(props) {
 
                     <Route path="/saved-movies">
                         <button className="form-search__btn-search page__button" type="submit"
-                                onClick={function (){props.onSearchMovies()}}>
+                                onClick={function (){props.onSearchCardsList()}}>
                             Найти
                         </button>
                     </Route>
                 </Switch>
             </form>
 
-            <FilterCheckbox/>
+            <FilterCheckbox onGetSearchCardsListDuration={props.onGetSearchCardsListDuration}/>
         </div>
     );
 }

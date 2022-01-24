@@ -77,7 +77,7 @@ function MoviesCardList(props) {
     return (
         <div className="page__content">
             <Switch>
-                <Route path="/movies">
+                <Route exact path="/movies">
                     <ul className="cards">
                         {props.cards.map((card) => (<MoviesCard card={card}
                                                                 nameRU={card.nameRU}
