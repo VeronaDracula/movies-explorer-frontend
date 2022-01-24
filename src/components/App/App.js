@@ -11,7 +11,8 @@ import SavedMovies from '../SavedMovies/SavedMovies.js';
 import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import Profile from '../Profile/Profile.js';
-import {apiMovies} from "../../utils/MoviesApi";
+import NotFound from '../NotFound/NotFound.js';
+// import {apiMovies} from "../../utils/MoviesApi";
 import {apiMain} from "../../utils/MainApi";
 import {apiAuth} from "../../utils/AuthApi";
 
@@ -52,7 +53,6 @@ function App() {
                 .then((data) => {
                     if (data){
                         setLoggedIn(true);
-                        // history.push('/movies');
                     }
                 })
                 .catch(err => {
@@ -158,24 +158,6 @@ function App() {
         }
     }
 
-
-    // //запрос данных карточки из общей базы
-    // function handleSearchMovies() {
-    //     preloaderState(true)
-    //     apiMovies
-    //         .getCards()
-    //         .then(cardsData => {
-    //             localStorage.setItem('cards', JSON.stringify(cardsData));
-    //             setCards(JSON.parse(localStorage.getItem('cards')))
-    //         })
-    //         .catch(err => console.log(err))
-    //         .finally(() => {
-    //             preloaderState(false)
-    //             foundActive(JSON.parse(localStorage.getItem('cards')))
-    //         });
-    // }
-
-
     //новые карточки
     function handleAddCards(newCards) {
         // let cardsNew = Object.assign([], cards);
@@ -269,13 +251,6 @@ function App() {
     }
 
 
-
-
-
-
-
-
-
   return (
     <div className="App">
         <CurrentUserContext.Provider value={currentUser}>
@@ -345,8 +320,12 @@ function App() {
                         onUpdateUser={handleUpdateUser}
                     />
 
-                    <Route path="/" >
-                        <Main />
+                    <Route exact path="/" >
+                        <Main/>
+                    </Route>
+
+                    <Route path="*">
+                        <NotFound/>
                     </Route>
                 </Switch>
 
