@@ -13,10 +13,11 @@ import {apiMovies} from "../../utils/MoviesApi";
 
 function Movies(props) {
 
-    const [keyword, setKeyword] = React.useState('');
+    const [keyword, setKeyword] = React.useState(undefined);
     const [cards, setCards] = React.useState([]);
     const [isPreloaderActive, setIsPreloaderActive] = React.useState(false);
     const [filterDuration, setFilterDuration] = React.useState(false);
+    const [errorText, setErrorText] = React.useState(false);
 
     function preloaderState(isLoading) {
         if(isLoading) {
@@ -34,6 +35,7 @@ function Movies(props) {
 
     function readKeyword(keyword2) {
         setKeyword(keyword2)
+        return keyword2
     }
 
     function getSearchCardsListDuration() {
@@ -44,6 +46,16 @@ function Movies(props) {
         else {
             setFilterDuration(true)
             setCards(searchCardsDuration(cards))
+        }
+    }
+
+    function validationInput() {
+        if (keyword === undefined) {
+            setErrorText(true)
+        }
+        else {
+            setErrorText(false)
+            handleSearchMovies()
         }
     }
 
@@ -60,7 +72,7 @@ function Movies(props) {
             .finally(() => {
                 preloaderState(false)
                 // foundActive(JSON.parse(localStorage.getItem('cards')))
-                getSearchCardsList()
+                getSearchCardsList();
             });
     }
 
@@ -72,10 +84,10 @@ function Movies(props) {
 
             <main className="content">
                 <section className="search">
-                    <SearchForm onSearchMovies={handleSearchMovies}
-                                // onSearchCardsList={getSearchCardsList}
+                    <SearchForm onSearchMovies ={validationInput}
                                 onSearchMoviesFilter={readKeyword}
                                 onGetSearchCardsListDuration={getSearchCardsListDuration}
+                                errorText={errorText}
 
                     />
                 </section>

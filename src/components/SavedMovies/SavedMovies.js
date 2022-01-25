@@ -16,17 +16,18 @@ function SavedMovies(props) {
     const [ourCards, setOurCards] = React.useState(props.ourCards);
     const [filterDuration, setFilterDuration] = React.useState(false);
 
+    React.useEffect(() => {
+        setOurCards(props.ourCards)
+    }, [props.onDeleteCard]);
+
     function getSearchCardsList() {
         setOurCards(searchCards(props.ourCards, keyword))
     }
 
     function readKeyword(keyword2) {
         setKeyword(keyword2)
+        return keyword2
     }
-
-    React.useEffect(() => {
-        setOurCards(props.ourCards)
-    }, [props.onDeleteCard]);
 
     function getSearchCardsListDuration() {
         if (filterDuration) {
@@ -65,5 +66,3 @@ function SavedMovies(props) {
 }
 
 export default SavedMovies;
-
-//cards={props.cards}

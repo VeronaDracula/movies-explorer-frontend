@@ -17,21 +17,23 @@ function SearchForm(props) {
     return (
         <div className="search__container page__content">
             <form className="form-search" name="form-search" onSubmit={handleSubmit}>
-                <input className="form-search__input" type="text"  id="search" name="search" placeholder="Фильм" required
+                <input className="form-search__input" type="text"  id="search" name="search" placeholder="Фильм"
                        onChange={handleChangeKeyword}/>
+
+                <span className={!props.errorText ? "form-search__input-error" : "form-search__input-error form-search__input-error_active"}
+                      id="search-error">Нужно ввести ключевое слово</span>
 
                 <Switch>
                     <Route path="/movies">
                         <button className="form-search__btn-search page__button" type="submit"
-                                onClick={function (){props.onSearchMovies()}}>
+                                onClick={props.onSearchMovies}>
                             Найти
                         </button>
 
                     </Route>
 
                     <Route path="/saved-movies">
-                        <button className="form-search__btn-search page__button" type="submit"
-                                onClick={function (){props.onSearchCardsList()}}>
+                        <button className="form-search__btn-search page__button" type="submit" onClick={props.onSearchCardsList}>
                             Найти
                         </button>
                     </Route>
@@ -44,3 +46,5 @@ function SearchForm(props) {
 }
 
 export default SearchForm;
+
+//{!props.errorText ? "form-search__input-error" : "form-search__input-error form-search__input-error_active"}

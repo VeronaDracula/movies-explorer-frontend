@@ -12,6 +12,7 @@
     padding-top: 80px;
     padding-bottom: 31px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .form-search__input {
@@ -51,6 +52,25 @@
     color: #FFF;
 }
 
+.form-search__input-error {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #EE3465;
+
+    position: absolute;
+    left: 0;
+    top: 85%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.form-search__input-error_active {
+    opacity: 1;
+}
+
+
 @media screen and (max-width: 768px) {
     .form-search {
         padding-bottom: 30px;
@@ -72,5 +92,9 @@
 
         font-size: 12px;
         line-height: 1.5;
+    }
+
+    .form-search__input-error {
+        top: 77%;
     }
 }
