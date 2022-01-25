@@ -4,9 +4,11 @@ import './StartFormBtn.css';
 function StartFormBtn(props) {
 
     return (
-        <button type="submit" className={props.typePage ? `form-start__btn ${props.typePage} page__button` : "form-start__btn page__button"}>
-            {props.buttonText}</button>
+        <button className={!props.isValid ? `form-start__btn ${props.typePage} form-start__btn_inactive` :
+            `form-start__btn ${props.typePage} page__button`}
+                type="submit" disabled={!props.isValid}>
+            {props.buttonText}
+        </button>
     );
 }
-
 export default StartFormBtn;

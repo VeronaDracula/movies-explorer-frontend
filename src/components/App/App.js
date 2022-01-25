@@ -106,8 +106,6 @@ function App() {
         localStorage.removeItem('cards');
     }
 
-
-
     //открытие и закрытие попапов
     function handlePopupMenuClick() {
         setIsPopupMenuOpen(true);
@@ -328,9 +326,7 @@ function App() {
                         <NotFound/>
                     </Route>
                 </Switch>
-
             </div>
-
         </CurrentUserContext.Provider>
     </div>
   );
