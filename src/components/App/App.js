@@ -89,6 +89,7 @@ function App() {
 
         localStorage.setItem('moviesCards', JSON.stringify([]));
         localStorage.setItem('inputSearchValue', '')
+        localStorage.setItem('filterDuration', JSON.stringify(false));
     }
 
 
