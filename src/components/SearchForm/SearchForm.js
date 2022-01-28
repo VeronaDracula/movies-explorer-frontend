@@ -8,6 +8,7 @@ function SearchForm(props) {
 
     function handleChangeKeyword(e) {
         props.onSearchMoviesFilter(e.target.value);
+        localStorage.setItem('inputSearchValue', e.target.value);
     }
 
     function handleSubmit(e) {
@@ -17,14 +18,15 @@ function SearchForm(props) {
     return (
         <div className="search__container page__content">
             <form className="form-search" name="form-search" onSubmit={handleSubmit}>
-                <input className="form-search__input" type="text"  id="search" name="search" placeholder="Фильм"
-                       onChange={handleChangeKeyword}/>
-
-                <span className={!props.errorText ? "form-search__input-error" : "form-search__input-error form-search__input-error_active"}
-                      id="search-error">Нужно ввести ключевое слово</span>
 
                 <Switch>
                     <Route path="/movies">
+                        <input className="form-search__input" type="text"  id="search" name="search" placeholder="Фильм"
+                               value={localStorage.getItem('inputSearchValue')}
+                               onChange={handleChangeKeyword}/>
+
+                        <span className={!props.errorText ? "form-search__input-error" : "form-search__input-error form-search__input-error_active"}
+                              id="search-error">Нужно ввести ключевое слово</span>
                         <button className="form-search__btn-search page__button" type="submit"
                                 onClick={props.onSearchMovies}>
                             Найти
@@ -33,6 +35,11 @@ function SearchForm(props) {
                     </Route>
 
                     <Route path="/saved-movies">
+                        <input className="form-search__input" type="text"  id="search" name="search" placeholder="Фильм"
+                               onChange={handleChangeKeyword}/>
+
+                        <span className={!props.errorText ? "form-search__input-error" : "form-search__input-error form-search__input-error_active"}
+                              id="search-error">Нужно ввести ключевое слово</span>
                         <button className="form-search__btn-search page__button" type="submit" onClick={props.onSearchCardsList}>
                             Найти
                         </button>
@@ -40,7 +47,7 @@ function SearchForm(props) {
                 </Switch>
             </form>
 
-            <FilterCheckbox onGetSearchCardsListDuration={props.onGetSearchCardsListDuration}/>
+            <FilterCheckbox onGetSearchCardsListDuration={props.onGetSearchCardsListDuration} isActiveCheckbox={props.isActiveCheckbox}/>
         </div>
     );
 }

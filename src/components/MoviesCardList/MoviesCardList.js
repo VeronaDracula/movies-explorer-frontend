@@ -7,38 +7,55 @@ import MoreBtn from "../MoreBtn/MoreBtn";
 
 function MoviesCardList(props) {
 
-    const [moreButton, setMoreButton] = React.useState(props.cards);
-
-    const [newCards, setNewCards] = React.useState([]);
-
-
-    // React.useEffect(() => {
-    //
-    //     // setNewCards(JSON.parse(localStorage.getItem('cards')))
-    //     // console.log(props.isClick)
-    //     // console.log('sdfgh')
-    //     // console.log(newCards)
-    //     setNewCards(props.cards())
-    //
-    //
-    // }, [props.isClick]);
-
-    // function fgh () {
-    //     if (props.isClick) {
-    //         setNewCards(loadCards(getCardsAmount()))
-    //         console.log(newCards)
-    //     }
-    // }
+    const [moreButton, setMoreButton] = React.useState(false);
+    const [cards, setCards] = React.useState([]);
 
 
 
+    React.useEffect(() => {
+        // setCards(loadCards(getCardsAmount()));
+        setCards(loadCards(getCardsAmount(), JSON.parse(localStorage.getItem('moviesCards'))));
 
+        if (JSON.parse(localStorage.getItem('moviesCards')).length > getNewCardsAmount()) {
+            setMoreButton(true)
+        }
+        else {
+            setMoreButton(false)
+        }
+
+        function handleResize() {
+            setCards(loadCards(getCardsAmount(), JSON.parse(localStorage.getItem('moviesCards'))));
+            getNewCardsAmount();
+            setCurrentAmount(getCardsAmount());
+            setNewAmount(getCardsAmount() + getNewCardsAmount());
+            if (JSON.parse(localStorage.getItem('moviesCards')).length > getNewCardsAmount()) {
+                setMoreButton(true)
+            }
+            else {
+                setMoreButton(false)
+            }
+
+        }
+        let timeOutFunctionId;
+        window.addEventListener('resize', () => {
+            clearTimeout(timeOutFunctionId);
+            timeOutFunctionId = setTimeout(handleResize, 500);
+        })
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+
+
+    }, [props.onClickSearch, props.onClickDuration]);
+
+
+    //количество карточек при первом выводе в зависимости от размера экрана
     function getCardsAmount() {
         const windowWidth = document.documentElement.clientWidth
         if ( windowWidth >=1280) {
             return 12
         }
-        else if ( windowWidth >= 480 && windowWidth <= 768) {
+        else if ( windowWidth >= 480 && windowWidth <= 1280) {
             return 8
         }
         else if ( windowWidth <= 480) {
@@ -46,32 +63,64 @@ function MoviesCardList(props) {
         }
     }
 
-
-    function loadCards(amount) {
-        if (props.cards !== undefined) {
-
-            const to = Math.min(Math.max(0, amount), props.cards.length);
-            return props.cards.slice(0, to)
-
+    //количество дополнительных карточек при первом выводе в зависимости от размера экрана
+    function getNewCardsAmount() {
+        const windowWidth = document.documentElement.clientWidth
+        if ( windowWidth >=1280) {
+            return 3
         }
+        else if ( windowWidth >= 480 && windowWidth <= 1280) {
+            return 2
+        }
+        else if ( windowWidth <= 480) {
+            return 1
+        }
+    }
 
+    //обрезка первой группы карточек
+    function loadCards(amount, cards) {
+        if (cards !== undefined) {
+            const to = Math.min(Math.max(0, amount), cards.length);
+            return cards.slice(0, to)
+        }
         return [];
     }
 
+    //выгрузка дополнительных карточек
+    function handleAddCards(newCards) {
+        let cardsNew = Object.assign([], cards);
+        newCards.forEach((newCard) =>
+            cardsNew.push(newCard)
+        )
+        setCards(cardsNew);
+    }
 
+
+    const [currentAmount, setCurrentAmount] = React.useState(getCardsAmount());
+    const [newAmount, setNewAmount] = React.useState(getCardsAmount() + getNewCardsAmount());
+
+
+    // добавление дополнительных карточек на страницу по кнопке
     function loadMoreCards() {
-        // // let newCards = cards.slice(0, 2)
-        // //
-        // let newCards = props.cards.slice(0, 3)
-        //
-        // props.onAddCards(newCards)
 
-        // setNewCards(loadCards(getCardsAmount()))
+        let newCards = JSON.parse(localStorage.getItem('moviesCards')).slice(currentAmount, newAmount)
+        handleAddCards(newCards);
 
-        // console.log(loadCards(getCardsAmount()))
+        // обновлять состояние
+        setCurrentAmount(currentAmount + getNewCardsAmount());
+        setNewAmount(newAmount + getNewCardsAmount());
 
-        // console.log(newCards)
+        console.log(JSON.parse(localStorage.moviesCards).length);
+        console.log(cards.length);
 
+        if ((JSON.parse(localStorage.moviesCards).length - cards.length) <= getNewCardsAmount()) {
+
+            setMoreButton(false)
+
+        }
+        else {
+            setMoreButton(true)
+        }
     }
 
     return (
@@ -79,7 +128,7 @@ function MoviesCardList(props) {
             <Switch>
                 <Route exact path="/movies">
                     <ul className="cards">
-                        {props.cards.map((card) => (<MoviesCard card={card}
+                        {cards.map((card) => (<MoviesCard card={card}
                                                                 nameRU={card.nameRU}
                                                                 duration={card.duration}
                                                                 image={`https://api.nomoreparties.co/${card.image.url}`}
@@ -113,7 +162,7 @@ function MoviesCardList(props) {
                                                                       key={ourCard._id}
                                                                       onDeleteCard={props.onDeleteCard}
                                                                       typePageBtn="card__btn_type_close"
-                            ourCards={props.ourCards}
+                                                                      ourCards={props.ourCards}
                         />))}
                     </ul>
                 </Route>

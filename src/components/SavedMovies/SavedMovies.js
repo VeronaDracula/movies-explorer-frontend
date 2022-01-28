@@ -6,7 +6,6 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import Header from "../Header/Header";
 import Footer from '../Footer/Footer.js';
 import MoviesNotFound from "../MoviesNotFound/MoviesNotFound";
-import Preloader from "../Preloader/Preloader";
 import {searchCards, searchCardsDuration} from "../../utils/Search";
 
 
@@ -15,6 +14,7 @@ function SavedMovies(props) {
     const [keyword, setKeyword] = React.useState('');
     const [ourCards, setOurCards] = React.useState(props.ourCards);
     const [filterDuration, setFilterDuration] = React.useState(false);
+    const [notFound, setNotFound] = React.useState(false);
 
     React.useEffect(() => {
         setOurCards(props.ourCards)
@@ -22,6 +22,13 @@ function SavedMovies(props) {
 
     function getSearchCardsList() {
         setOurCards(searchCards(props.ourCards, keyword))
+
+        if (searchCards(props.ourCards, keyword).length === 0) {
+            setNotFound(true)
+        }
+        else {
+            setNotFound(false)
+        }
     }
 
     function readKeyword(keyword2) {
@@ -54,8 +61,7 @@ function SavedMovies(props) {
                 </section>
 
                 <section className="movies">
-                    <MoviesNotFound isActiveFound={props.isActiveFound}/>
-                    <Preloader isActive={props.isActive}/>
+                    <MoviesNotFound isActiveFound={notFound}/>
                     <MoviesCardList ourCards={ourCards} onDeleteCard={props.onDeleteCard} cards={props.cards}/>
                 </section>
             </main>

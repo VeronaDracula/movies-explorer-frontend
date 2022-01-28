@@ -6,7 +6,7 @@ import MainTitle from '../MainTitle/MainTitle.js';
 function AboutProject() {
 
     return (
-        <div className="project__container page__content">
+        <div className="project__container page__content" id="AboutProject">
             <MainTitle buttonText={"О проекте"}/>
             <div className="project__info">
                 <div className="project__column">

@@ -8,7 +8,7 @@ import AboutMe from '../AboutMe/AboutMe.js';
 import Header from "../Header/Header";
 import Footer from '../Footer/Footer.js';
 
-function Main(props) {
+function Main() {
 
     return (
         <>

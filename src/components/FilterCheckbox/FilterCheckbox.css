@@ -13,7 +13,6 @@
     margin: 0;
 }
 
-
 .filter__button {
     position: relative;
     display: inline-block;
@@ -51,14 +50,14 @@
     background-color: #3DDC84;
 }
 
-.filter__input:focus + .filter__slider {
-    box-shadow: 0 0 1px #3DDC84;
-}
-
 .filter__input:checked + .filter__slider:before {
     -webkit-transform: translateX(19px);
     -ms-transform: translateX(19px);
     transform: translateX(19px);
+}
+
+.filter__input:focus + .filter__slider {
+    box-shadow: 0 0 1px #3DDC84;
 }
 
 .filter__slider {

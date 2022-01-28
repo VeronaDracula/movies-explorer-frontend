@@ -12,7 +12,6 @@ import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import Profile from '../Profile/Profile.js';
 import NotFound from '../NotFound/NotFound.js';
-// import {apiMovies} from "../../utils/MoviesApi";
 import {apiMain} from "../../utils/MainApi";
 import {apiAuth} from "../../utils/AuthApi";
 
@@ -21,16 +20,11 @@ function App() {
     const [isPopupMenuOpen, setIsPopupMenuOpen] = React.useState(false);
     const [isPopupEditProfileOpen, setIsPopupEditProfileOpen] = React.useState(false);
     const [isPreloaderActive, setIsPreloaderActive] = React.useState(false);
-
-    const [notFound, setNotFound] = React.useState(false);
-
-    // const [selectedCard, setSelectedCard] = React.useState(emptyCard);
     const [cards, setCards] = React.useState([]);
     const [ourCards, setOurCards] = React.useState([]);
-
     const [currentUser, setCurrentUser] = React.useState({});
-
     const [loggedIn, setLoggedIn] = React.useState(false);
+    const [infoTooltipText, setInfoTooltipText] = React.useState('');
 
     const history = useHistory();
 
@@ -71,9 +65,6 @@ function App() {
             })
             .catch(err => {
                 console.log(err);
-                // handleInfoTooltipOpen();
-                // setInfoTooltipImg(imgLoginNo);
-                // setInfoTooltipText('Что-то пошло не так!\n' + 'Попробуйте ещё раз.');
             })
             .finally(() => {
                 handleLogin({email, password})
@@ -95,6 +86,9 @@ function App() {
             .catch(err => {
                 console.log(err);
             })
+
+        localStorage.setItem('moviesCards', JSON.stringify([]));
+        localStorage.setItem('inputSearchValue', '')
     }
 
 
@@ -104,6 +98,8 @@ function App() {
         history.push('/signin');
         setLoggedIn(false);
         localStorage.removeItem('cards');
+        localStorage.removeItem('moviesCards');
+        localStorage.removeItem('inputSearchValue');
     }
 
     //открытие и закрытие попапов
@@ -118,6 +114,7 @@ function App() {
     function closeAllPopups() {
         setIsPopupMenuOpen(false);
         setIsPopupEditProfileOpen(false);
+        setInfoTooltipText('')
     }
 
     //закрытие попапа по Esc
@@ -144,27 +141,6 @@ function App() {
             setIsPreloaderActive(false);
         }
     }
-
-    //надо ли выводить надпись "Ничего не найдено"
-    function foundActive (movies) {
-        if ( movies.length === 0 ) {
-            setNotFound(true);
-        }
-
-        else {
-            setNotFound(false);
-        }
-    }
-
-    //новые карточки
-    function handleAddCards(newCards) {
-        // let cardsNew = Object.assign([], cards);
-        // newCards.map((newCard) =>
-        //     cardsNew.push(newCard)
-        // )
-        // setCards(cardsNew);
-    }
-
 
     // получение карточек из нашей бзаы
     React.useEffect(() => {
@@ -235,16 +211,14 @@ function App() {
 
     //обновление данных пользователя
     function handleUpdateUser(newUserData) {
-        // buttonState(buttonText, true);
         apiMain
             .createNewUserInfoApi(newUserData)
             .then(newUserData => {
                 setCurrentUser(newUserData);
-                closeAllPopups();
             })
             .catch(err => console.log(err))
             .finally(() => {
-                // buttonState(buttonText, false)
+                setInfoTooltipText('Данные обновлены')
             });
     }
 
@@ -269,11 +243,7 @@ function App() {
                         component={Movies}
 
                         cards={cards}
-                        // onSearchMovies={handleSearchMovies}
                         isActive={isPreloaderActive}
-                        onFound={foundActive}
-                        isActiveFound={notFound}
-                        // onAddCards={handleAddCards}
                         onAddCard={handleAddMoviesSubmit}
 
                         onMenu={handlePopupMenuClick}
@@ -289,10 +259,7 @@ function App() {
                         component={SavedMovies}
 
                         ourCards={ourCards}
-                        // onSearchMovies={handleSearchMoviesSaved}
                         isActive={isPreloaderActive}
-                        onFound={foundActive}
-                        isActiveFound={notFound}
                         onDeleteCard={handleDeleteCardSubmit}
 
 
@@ -316,6 +283,7 @@ function App() {
                         onMenu={handlePopupMenuClick}
                         isOpenMenu={isPopupMenuOpen}
                         onUpdateUser={handleUpdateUser}
+                        infoTooltipText={infoTooltipText}
                     />
 
                     <Route exact path="/" >

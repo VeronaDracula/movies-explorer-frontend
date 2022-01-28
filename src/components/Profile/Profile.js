@@ -35,7 +35,7 @@ function Profile(props) {
                     </div>
                 </section>
 
-                <PopupEditProfile isOpen={props.isOpen} onClose={props.onClose} onUpdateUser={props.onUpdateUser}/>
+                <PopupEditProfile isOpen={props.isOpen} onClose={props.onClose} onUpdateUser={props.onUpdateUser} infoTooltipText={props.infoTooltipText}/>
             </main>
         </>
     );

@@ -59,6 +59,8 @@ function PopupEditProfile(props) {
                                rror={errorEMail} isValid={isValid} pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
                     />
 
+                    <p className="form-profile__info">{props.infoTooltipText}</p>
+
                     <StartFormBtn buttonText="Сохранить" typePage="form-start__btn_type_profile" isValid={isValid}/>
                 </form>
             </div>
