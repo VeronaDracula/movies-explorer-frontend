@@ -22,11 +22,6 @@ function Movies(props) {
     const [clickDuration, setClickDuration] = React.useState(false);
     const [notFound, setNotFound] = React.useState(false);
 
-    //
-    // React.useEffect(() => {
-    //     setFilterDuration(JSON.parse(localStorage.filterDuration));
-    // }, [clickDuration]);
-
     //отслеживаем нажатие кнопки
     function listenerClick(button, setButton) {
         if(button) {
