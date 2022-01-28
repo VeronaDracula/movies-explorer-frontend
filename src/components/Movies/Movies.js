@@ -16,11 +16,16 @@ function Movies(props) {
     const [keyword, setKeyword] = React.useState(undefined);
     const [cards, setCards] = React.useState([]);
     const [isPreloaderActive, setIsPreloaderActive] = React.useState(false);
-    const [filterDuration, setFilterDuration] = React.useState(JSON.parse(localStorage.filterDuration));
+    const [filterDuration, setFilterDuration] = React.useState(false);
     const [errorText, setErrorText] = React.useState(false);
     const [clickSearch, setClickSearch] = React.useState(false);
     const [clickDuration, setClickDuration] = React.useState(false);
     const [notFound, setNotFound] = React.useState(false);
+
+
+    React.useEffect(() => {
+        setFilterDuration(JSON.parse(localStorage.filterDuration));
+    }, []);
 
     //отслеживаем нажатие кнопки
     function listenerClick(button, setButton) {
