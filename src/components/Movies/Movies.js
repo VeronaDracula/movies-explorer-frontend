@@ -25,7 +25,7 @@ function Movies(props) {
 
     React.useEffect(() => {
         setFilterDuration(JSON.parse(localStorage.filterDuration));
-    }, []);
+    }, [clickDuration]);
 
     //отслеживаем нажатие кнопки
     function listenerClick(button, setButton) {
