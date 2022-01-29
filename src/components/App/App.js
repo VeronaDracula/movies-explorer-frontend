@@ -98,7 +98,6 @@ function App() {
     //выход
     function signOut(){
         localStorage.removeItem('jwt');
-        history.push('/signin');
         setLoggedIn(false);
         setCurrentUser({});
 

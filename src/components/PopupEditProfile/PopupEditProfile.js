@@ -22,7 +22,7 @@ function PopupEditProfile(props) {
     function handleChangeEmail(e) {
         if (e.target.value === currentUser.email) {
             setEmail(e.target.value);
-            setErrorEMail('Введите новые данные');
+            setErrorEMail('Email соответствует текущему');
             setIsValid(false)
         }
         else {
@@ -35,7 +35,7 @@ function PopupEditProfile(props) {
     function handleChangeName(e) {
         if (e.target.value === currentUser.name) {
             setName(e.target.value);
-            setErrorName('Введите новые данные');
+            setErrorName('Имя соответствует текущему');
             setIsValid(false)
         }
         else {
