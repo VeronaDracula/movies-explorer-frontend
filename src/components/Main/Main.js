@@ -8,11 +8,11 @@ import AboutMe from '../AboutMe/AboutMe.js';
 import Header from "../Header/Header";
 import Footer from '../Footer/Footer.js';
 
-function Main() {
+function Main(props) {
 
     return (
         <>
-            <Header/>
+            <Header loggedIn={props.loggedIn} onMenu={props.onMenu} isOpen={props.isOpenMenu} onClose={props.onClose}/>
             <main className="content">
                 <section className="promo">
                     <Promo />

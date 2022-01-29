@@ -69,7 +69,7 @@ function PopupEditProfile(props) {
                                error={errorName} isValid={isValid} pattern="^[a-zA-ZА-Яа-яЁё\s\-]+$"
                     />
                     <StartForm type="email" name="email" placeholder="E-mail" value={email || ''} onChange={handleChangeEmail}
-                               error={errorEMail} isValid={isValid} pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
+                               error={errorEMail} isValid={isValid} pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,})\.([A-z]{2,8})"
                     />
 
                     <p className="form-profile__info">{props.infoTooltipText}</p>

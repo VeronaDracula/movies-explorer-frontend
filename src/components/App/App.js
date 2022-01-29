@@ -250,7 +250,6 @@ function App() {
                         ourCards={ourCards}
                         onDeleteCard={handleDeleteCardSubmit}
 
-
                         onMenu={handlePopupMenuClick}
                         isOpen={isPopupMenuOpen}
                         onClose={closeAllPopups}
@@ -275,7 +274,7 @@ function App() {
                     />
 
                     <Route exact path="/" >
-                        <Main/>
+                        <Main loggedIn={loggedIn} onMenu={handlePopupMenuClick} isOpenMenu={isPopupMenuOpen} onClose={closeAllPopups}/>
                     </Route>
 
                     <Route path="*">

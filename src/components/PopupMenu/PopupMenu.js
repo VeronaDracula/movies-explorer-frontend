@@ -13,7 +13,8 @@ function PopupMenu(props) {
                <ul className="popup__menu">
                    <li className="popup__menu-item">
                        <NavLink exact to="/" className="popup__menu-item-link page__link"
-                                activeClassName="popup__menu-item-link_active">Главная</NavLink>
+                                activeClassName="popup__menu-item-link_active"
+                                onClick={props.onClose}>Главная</NavLink>
                    </li>
                    <li className="popup__menu-item">
                        <NavLink to="/movies" className="popup__menu-item-link page__link"

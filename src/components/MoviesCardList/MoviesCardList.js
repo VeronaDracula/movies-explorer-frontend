@@ -113,9 +113,6 @@ function MoviesCardList(props) {
         setCurrentAmount(currentAmount + getNewCardsAmount());
         setNewAmount(newAmount + getNewCardsAmount());
 
-        console.log(JSON.parse(localStorage.moviesCards).length);
-        console.log(cards.length);
-
         if ((JSON.parse(localStorage.moviesCards).length - cards.length) <= getNewCardsAmount()) {
 
             setMoreButton(false)

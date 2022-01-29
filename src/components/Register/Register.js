@@ -55,8 +55,7 @@ function Register(props) {
                     />
                     <StartForm type="email" name="email" placeholder="E-mail" value={email || ''} onChange={handleChangeEmail}
                                error={errorEMail} isValid={isValid}
-                               pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
-                               // pattern="/^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i"
+                               pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,})\.([A-z]{2,8})"
                     />
                     <StartForm type="password" name="password" placeholder="Пароль" minLength="5"
                                value={password || ''}
