@@ -1,0 +1,26 @@
+.popup_type_error {
+    justify-content: center;
+}
+
+.popup__container_type_error {
+    width: 500px;
+    height: 100px;
+    background: #202020;
+    border-radius: 3px;
+    padding: 25px 15px 15px 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.error-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #EE3465;
+    margin: 0;
+}

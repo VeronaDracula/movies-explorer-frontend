@@ -6,6 +6,8 @@ import headerLogo from '../../images/logo.svg';
 
 import Navigation from '../Navigation/Navigation.js';
 
+// import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+
 function Header(props) {
     return (
         <header className="header">

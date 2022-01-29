@@ -23,6 +23,9 @@ function MoviesCardList(props) {
             setMoreButton(false)
         }
 
+        setCurrentAmount(getCardsAmount());
+        setNewAmount(getCardsAmount() + getNewCardsAmount());
+
         function handleResize() {
             setCards(loadCards(getCardsAmount(), JSON.parse(localStorage.getItem('moviesCards'))));
             getNewCardsAmount();

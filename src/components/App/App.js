@@ -12,6 +12,7 @@ import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import Profile from '../Profile/Profile.js';
 import NotFound from '../NotFound/NotFound.js';
+import PopupError from '../PopupError/PopupError.js';
 import {apiMain} from "../../utils/MainApi";
 import {apiAuth} from "../../utils/AuthApi";
 
@@ -19,7 +20,8 @@ function App() {
 
     const [isPopupMenuOpen, setIsPopupMenuOpen] = React.useState(false);
     const [isPopupEditProfileOpen, setIsPopupEditProfileOpen] = React.useState(false);
-    const [isPreloaderActive, setIsPreloaderActive] = React.useState(false);
+    const [isPopupErrorOpen, setIsPopupErrorOpen] = React.useState(false);
+    const [errorText, setErrorText] = React.useState('');
     const [cards, setCards] = React.useState([]);
     const [ourCards, setOurCards] = React.useState([]);
     const [currentUser, setCurrentUser] = React.useState({});
@@ -61,14 +63,14 @@ function App() {
             .register({name, email, password})
             .then(response => {
                 handleLogin({email, password})
-                // handleInfoTooltipOpen();
             })
             .catch(err => {
+                if (err === 409) {
+                    setErrorText("Пользователь с указанным email уже существует");
+                }
                 console.log(err);
+                handlePopupErrorClick();
             })
-            .finally(() => {
-                handleLogin({email, password})
-            });
     }
 
     //вход
@@ -98,6 +100,8 @@ function App() {
         localStorage.removeItem('jwt');
         history.push('/signin');
         setLoggedIn(false);
+        setCurrentUser({});
+
         localStorage.removeItem('cards');
         localStorage.removeItem('moviesCards');
         localStorage.removeItem('inputSearchValue');
@@ -112,9 +116,14 @@ function App() {
         setIsPopupEditProfileOpen(true);
     }
 
+    function handlePopupErrorClick() {
+        setIsPopupErrorOpen(true);
+    }
+
     function closeAllPopups() {
         setIsPopupMenuOpen(false);
         setIsPopupEditProfileOpen(false);
+        setIsPopupErrorOpen(false)
         setInfoTooltipText('')
     }
 
@@ -132,33 +141,41 @@ function App() {
     }, [])
 
 
-    //процесс загрузки данных карточек
-    function preloaderState(isLoading) {
-        if(isLoading) {
-            setIsPreloaderActive(true);
-        }
-
-        else{
-            setIsPreloaderActive(false);
-        }
-    }
-
-    // получение карточек из нашей бзаы
+    //получение данных пользователя
     React.useEffect(() => {
         if(loggedIn === true) {
-            preloaderState(true)
+            apiMain
+                .getUserInfoApi()
+                .then(userData => {
+                    setCurrentUser(userData)
+                })
+                .catch(err => console.log(err))
+        }
+
+    }, [loggedIn]);
+
+    //обновление данных пользователя
+    function handleUpdateUser(newUserData) {
+        apiMain
+            .createNewUserInfoApi(newUserData)
+            .then(newUserData => {
+                setCurrentUser(newUserData);
+                setInfoTooltipText('Данные обновлены');
+            })
+            .catch(err => console.log(err))
+    }
+
+    //получение карточек из нашей бзаы
+    React.useEffect(() => {
+        if(loggedIn === true) {
             apiMain
                 .getCards()
                 .then(cardsData => {
-                    localStorage.setItem('ourCards', JSON.stringify(cardsData));
-                    setOurCards(JSON.parse(localStorage.getItem('ourCards')))
+                    setOurCards(cardsData.filter(cardData => cardData.owner ===  currentUser._id))
                 })
                 .catch(err => console.log(err))
-                .finally(() => {
-                    preloaderState(false)
-                });
         }
-    }, [loggedIn]);
+    }, [loggedIn, currentUser]);
 
     //добавление и удаление новой карточки в нашу базу
     function handleAddMoviesSubmit(card) {
@@ -196,34 +213,6 @@ function App() {
             .catch(err => console.log(err))
     }
 
-
-    //получение данных пользователя
-    React.useEffect(() => {
-        if(loggedIn === true) {
-            apiMain
-                .getUserInfoApi()
-                .then(userData => {
-                    setCurrentUser(userData)
-                })
-                .catch(err => console.log(err))
-        }
-
-    }, [loggedIn]);
-
-    //обновление данных пользователя
-    function handleUpdateUser(newUserData) {
-        apiMain
-            .createNewUserInfoApi(newUserData)
-            .then(newUserData => {
-                setCurrentUser(newUserData);
-            })
-            .catch(err => console.log(err))
-            .finally(() => {
-                setInfoTooltipText('Данные обновлены')
-            });
-    }
-
-
   return (
     <div className="App">
         <CurrentUserContext.Provider value={currentUser}>
@@ -244,7 +233,6 @@ function App() {
                         component={Movies}
 
                         cards={cards}
-                        isActive={isPreloaderActive}
                         onAddCard={handleAddMoviesSubmit}
 
                         onMenu={handlePopupMenuClick}
@@ -260,7 +248,6 @@ function App() {
                         component={SavedMovies}
 
                         ourCards={ourCards}
-                        isActive={isPreloaderActive}
                         onDeleteCard={handleDeleteCardSubmit}
 
 
@@ -295,6 +282,8 @@ function App() {
                         <NotFound/>
                     </Route>
                 </Switch>
+
+                <PopupError errorText={errorText} isOpen={isPopupErrorOpen} onClose={closeAllPopups}/>
             </div>
         </CurrentUserContext.Provider>
     </div>

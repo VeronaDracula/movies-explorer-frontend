@@ -6,7 +6,7 @@ function StartForm(props) {
     return (
         <div className="form-start__section">
             <label htmlFor={props.name} className="form-start__label">{props.placeholder}</label>
-            <input type={props.type} className="form-start__input" id={props.name}
+            <input type={props.type} className="form-start__input" id={props.name} required
                    name={props.name}
                    placeholder={props.placeholder}
                    minLength={props.minLength} maxLength={props.maxLength}

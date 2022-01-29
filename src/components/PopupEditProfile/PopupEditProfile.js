@@ -10,7 +10,6 @@ function PopupEditProfile(props) {
     const [name, setName] = React.useState('');
     const [email, setEmail] = React.useState('');
     const currentUser = React.useContext(CurrentUserContext);
-
     const [errorName, setErrorName] = React.useState('');
     const [errorEMail, setErrorEMail] = React.useState('');
     const [isValid, setIsValid] = React.useState(false);
@@ -21,15 +20,29 @@ function PopupEditProfile(props) {
     }, [currentUser, props.isOpen]);
 
     function handleChangeEmail(e) {
-        setEmail(e.target.value);
-        setErrorEMail(e.target.validationMessage);
-        setIsValid(e.target.closest(".form-profile").checkValidity());
+        if (e.target.value === currentUser.email) {
+            setEmail(e.target.value);
+            setErrorEMail('Введите новые данные');
+            setIsValid(false)
+        }
+        else {
+            setEmail(e.target.value);
+            setErrorEMail(e.target.validationMessage);
+            setIsValid(e.target.closest(".form-profile").checkValidity());
+        }
     }
 
     function handleChangeName(e) {
-        setName(e.target.value);
-        setErrorName(e.target.validationMessage);
-        setIsValid(e.target.closest(".form-profile").checkValidity());
+        if (e.target.value === currentUser.name) {
+            setName(e.target.value);
+            setErrorName('Введите новые данные');
+            setIsValid(false)
+        }
+        else {
+            setName(e.target.value);
+            setErrorName(e.target.validationMessage);
+            setIsValid(e.target.closest(".form-profile").checkValidity());
+        }
     }
 
     function removeErrors() {
@@ -56,7 +69,7 @@ function PopupEditProfile(props) {
                                error={errorName} isValid={isValid} pattern="^[a-zA-ZА-Яа-яЁё\s\-]+$"
                     />
                     <StartForm type="email" name="email" placeholder="E-mail" value={email || ''} onChange={handleChangeEmail}
-                               rror={errorEMail} isValid={isValid} pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
+                               error={errorEMail} isValid={isValid} pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
                     />
 
                     <p className="form-profile__info">{props.infoTooltipText}</p>
