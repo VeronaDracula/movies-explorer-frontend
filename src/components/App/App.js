@@ -104,6 +104,8 @@ function App() {
         localStorage.removeItem('cards');
         localStorage.removeItem('moviesCards');
         localStorage.removeItem('inputSearchValue');
+        localStorage.removeItem('filterDuration');
+        localStorage.removeItem('keyword');
     }
 
     //открытие и закрытие попапов

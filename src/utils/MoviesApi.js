@@ -15,7 +15,6 @@ class MoviesApi {
         return fetch(this.url, {
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
             },
         }).then(response => {
             return this._getResponseData(response)

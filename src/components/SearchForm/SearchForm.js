@@ -11,6 +11,10 @@ function SearchForm(props) {
         localStorage.setItem('inputSearchValue', e.target.value);
     }
 
+    function handleChangeKeywordSaved(e) {
+        props.onSearchMoviesFilter(e.target.value);
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
     }
@@ -36,7 +40,7 @@ function SearchForm(props) {
 
                     <Route path="/saved-movies">
                         <input className="form-search__input" type="text"  id="search" name="search" placeholder="Фильм"
-                               onChange={handleChangeKeyword}/>
+                               onChange={handleChangeKeywordSaved}/>
 
                         <span className={!props.errorText ? "form-search__input-error" : "form-search__input-error form-search__input-error_active"}
                               id="search-error">Нужно ввести ключевое слово</span>
