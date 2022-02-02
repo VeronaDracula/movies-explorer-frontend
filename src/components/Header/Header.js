@@ -28,15 +28,32 @@ function Header(props) {
                 </Route>
 
                 <Route path="/" >
-                    <div className="header__container">
-                        <div className="header__content page__content">
-                            <div>
-                                <Link to="/" className="logo__link page__link"><img className="logo" src={headerLogo} alt="логотип"/></Link>
+                    {props.loggedIn ? (
+                        <div className="header__container header__container_type_not-main">
+                            <div className="header__content header__content_type_movies page__content page__content_type_header">
+                                <div>
+                                    <Link to="/" className="logo__link logo_type_movies page__link">
+                                        <img className="logo" src={headerLogo} alt="логотип"/>
+                                    </Link>
+                                </div>
+                                <Navigation movies="фильмы"
+                                            onMenu={props.onMenu}
+                                            isOpen={props.isOpen}
+                                            onClose={props.onClose}
+                                            loggedIn={props.loggedIn}/>
                             </div>
-                            <Navigation/>
-                        </div>
-                    </div>
+                        </div>) : (
+                        <div className="header__container">
+                            <div className="header__content page__content">
+                                <div>
+                                    <Link to="/" className="logo__link page__link"><img className="logo" src={headerLogo} alt="логотип"/></Link>
+                                </div>
+                                <Navigation/>
+                            </div>
+                        </div>)
+                    }
                 </Route>
+
             </Switch>
         </header>
     );

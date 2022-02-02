@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route, Switch} from "react-router-dom";
+import {NavLink, Link, Route, Switch} from "react-router-dom";
 import './Navigation.css';
 
 import PopupMenu from '../PopupMenu/PopupMenu.js';
@@ -16,12 +16,12 @@ function Navigation(props) {
                     <div className="navigation__movies">
                         <ul className="navigation__list">
                             <li className="navigation__list-item">
-                                <Link to="/movies" className="navigation__link navigation__link_type_movies navigation__link_active
-                                page__link">Фильмы</Link>
+                                <NavLink to="/movies" className="navigation__link navigation__link_type_movies
+                                page__link" activeClassName="navigation__link_active">Фильмы</NavLink>
                             </li>
                             <li>
-                                <Link to="/saved-movies" className="navigation__link navigation__link_type_movies
-                                page__link">Сохранённые фильмы</Link>
+                                <NavLink to="/saved-movies" className="navigation__link navigation__link_type_movies
+                                page__link" activeClassName="navigation__link_active">Сохранённые фильмы</NavLink>
                             </li>
                         </ul>
                         <Account/>
@@ -31,10 +31,31 @@ function Navigation(props) {
                 </Route>
 
                 <Route path="/" >
-                    <div className="navigation__main">
-                        <Link to="/signup" className="navigation__link navigation__link_type_main page__link">Регистрация</Link>
-                        <Link to="/signin" className="navigation__link-color page__link">Войти</Link>
-                    </div>
+                    {props.loggedIn ? (
+                        <>
+                            <button className="open-popup-menu page__button" type="button" onClick={props.onMenu}></button>
+                            <div className="navigation__movies">
+                                <ul className="navigation__list">
+                                    <li className="navigation__list-item">
+                                        <NavLink to="/movies" className="navigation__link navigation__link_type_movies
+                                page__link" activeClassName="navigation__link_active">Фильмы</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/saved-movies" className="navigation__link navigation__link_type_movies
+                                page__link" activeClassName="navigation__link_active">Сохранённые фильмы</NavLink>
+                                    </li>
+                                </ul>
+                                <Account/>
+                            </div>
+
+                            <PopupMenu isOpen={props.isOpen} onClose={props.onClose} typePage="popup__container_type_menu"/>
+
+                        </>) : (
+                        <div className="navigation__main">
+                            <Link to="/signup" className="navigation__link navigation__link_type_main page__link">Регистрация</Link>
+                            <Link to="/signin" className="navigation__link-color page__link">Войти</Link>
+                        </div>)
+                    }
                 </Route>
             </Switch>
         </div>
