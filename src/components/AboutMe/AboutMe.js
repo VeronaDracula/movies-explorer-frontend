@@ -1,7 +1,7 @@
 import React from 'react';
 import './AboutMe.css';
 
-import studentPhoto from '../../images/student-photo.jpg';
+import studentPhoto from '../../images/owl.jpg';
 
 import MainTitle from '../MainTitle/MainTitle.js';
 
@@ -12,13 +12,13 @@ function AboutMe() {
             <MainTitle buttonText={"Студент"}/>
             <div className="about__data">
                 <div className="about__data-text">
-                    <h3 className="about__data-text-title">Виталий</h3>
-                    <p className="about__data-text-subtitle">Фронтенд-разработчик, 30 лет</p>
+                    <h3 className="about__data-text-title">Екатерина</h3>
+                    <p className="about__data-text-subtitle">Фронтенд-разработчик, 27 лет</p>
                     <p className="about__data-text-info">
-                        Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена
-                        и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года
-                        работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал
-                        заниматься фриланс-заказами и ушёл с постоянной работы.
+                        Я живу в Санкт-Петербурге, закончила факультет химии веществ и материалов в СпбГТИ(ТУ).
+                        Люблю читать фэнтези, играть в компьютерные игры и иногда собирать паззлы.
+                        Примерно полтора года назад начала кодить. После того, как прошла курс по веб-разработке,
+                        активно ищу работу по новой специальности.
                     </p>
                     <ul className="about__data-contacts">
                         <li className="about__data-contacts-item">

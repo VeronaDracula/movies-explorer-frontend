@@ -71,6 +71,7 @@
     border-radius: 10px;
     height: 327px;
     width: 270px;
+    object-fit: cover;
 }
 
 .about__portfolio-title {
