@@ -1,7 +1,9 @@
 # Дипломный проект  
 Дипломный проект от Яндекс.Практикума.  
 Проект представляет собой динамический адаптивный сайт.  
-Стек технологий: React, JavaScript, HTML, CSS, БЭМ, mongoDB, Express.js
+Стек технологий: React, JavaScript, HTML, CSS, БЭМ, mongoDB, Express.js  
+В данном репозитории представлена фронтенд часть  
+Бэкенд: https://github.com/VeronaDracula/movies-explorer-api
 
 # Основной функционал:  
 - Регистрация на сайте
