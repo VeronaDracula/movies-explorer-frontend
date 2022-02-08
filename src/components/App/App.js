@@ -31,6 +31,7 @@ function App() {
     const history = useHistory();
 
     React.useEffect(() => {
+        localStorage.setItem('LoggedIn', JSON.stringify(false));
         tokenCheck();
     }, []);
 
@@ -88,7 +89,6 @@ function App() {
         localStorage.setItem('moviesCards', JSON.stringify([]));
         localStorage.setItem('inputSearchValue', '')
         localStorage.setItem('filterDuration', JSON.stringify(false));
-        localStorage.setItem('LoggedIn', JSON.stringify(true));
     }
 
 
