@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useHistory} from 'react-router-dom';
+import {Redirect, Route, Switch, useHistory} from 'react-router-dom';
 import './App.css';
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
@@ -25,16 +25,10 @@ function App() {
     const [cards, setCards] = React.useState([]);
     const [ourCards, setOurCards] = React.useState([]);
     const [currentUser, setCurrentUser] = React.useState({});
-    const [loggedIn, setLoggedIn] = React.useState(false);
+    const [loggedIn, setLoggedIn] = React.useState(JSON.parse(localStorage.LoggedIn));
     const [infoTooltipText, setInfoTooltipText] = React.useState('');
 
     const history = useHistory();
-
-    React.useEffect(() => {
-        if(loggedIn === true) {
-            history.push('/movies');
-        }
-    }, [loggedIn]);
 
     React.useEffect(() => {
         tokenCheck();
@@ -49,6 +43,7 @@ function App() {
                 .then((data) => {
                     if (data){
                         setLoggedIn(true);
+                        localStorage.setItem('LoggedIn', JSON.stringify(true));
                     }
                 })
                 .catch(err => {
@@ -83,6 +78,7 @@ function App() {
                     localStorage.setItem('jwt', token);
                     tokenCheck();
                     setLoggedIn(true);
+                    history.push('/movies');
                 }
             })
             .catch(err => {
@@ -106,6 +102,7 @@ function App() {
         localStorage.removeItem('inputSearchValue');
         localStorage.removeItem('filterDuration');
         localStorage.removeItem('keyword');
+        localStorage.setItem('LoggedIn', JSON.stringify(false));
     }
 
     //открытие и закрытие попапов
