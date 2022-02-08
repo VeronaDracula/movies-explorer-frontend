@@ -25,13 +25,12 @@ function App() {
     const [cards, setCards] = React.useState([]);
     const [ourCards, setOurCards] = React.useState([]);
     const [currentUser, setCurrentUser] = React.useState({});
-    const [loggedIn, setLoggedIn] = React.useState(JSON.parse(localStorage.LoggedIn));
+    const [loggedIn, setLoggedIn] = React.useState(false);
     const [infoTooltipText, setInfoTooltipText] = React.useState('');
 
     const history = useHistory();
 
     React.useEffect(() => {
-        localStorage.setItem('LoggedIn', JSON.stringify(false));
         tokenCheck();
     }, []);
 
@@ -44,7 +43,7 @@ function App() {
                 .then((data) => {
                     if (data){
                         setLoggedIn(true);
-                        localStorage.setItem('LoggedIn', JSON.stringify(true));
+                        // localStorage.setItem('LoggedIn', JSON.stringify(true));
                     }
                 })
                 .catch(err => {
@@ -103,7 +102,7 @@ function App() {
         localStorage.removeItem('inputSearchValue');
         localStorage.removeItem('filterDuration');
         localStorage.removeItem('keyword');
-        localStorage.setItem('LoggedIn', JSON.stringify(false));
+        // localStorage.setItem('LoggedIn', JSON.stringify(false));
     }
 
     //открытие и закрытие попапов
